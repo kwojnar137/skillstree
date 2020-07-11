@@ -844,10 +844,12 @@
    text-overflow: ellipsis;
    white-space: nowrap;
    flex: 1;
+   
  }
  .list-item input[type="text"] {
    background: transparent;
    width: 100%;
+
  }
  .list-item input[type="text"]:focus {
    cursor: text;
