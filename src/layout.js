@@ -1,9 +1,24 @@
 import React from 'react'
 
-export default function layout() {
+export const Nav = () => {
     return (
-        <div>
+        <div className='navBar'>
 
+        </div>
+    )
+}
+
+
+export default function layout({ children }) {
+    return (
+        <div className='mainContainer'>
+            {Nav}
+            <div className='contentContainer'>
+                {children}
+            </div>
+            <div className='footer'>
+                {/* {footer} */}
+            </div>
         </div>
     )
 }
