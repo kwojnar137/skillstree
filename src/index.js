@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/index.css';
-import App from './App';
-import Task from './components/Task'
+import { BrowserRouter as Router } from "react-router-dom";
+import Routes from './Routes'
+import './sass/app.scss'
 
+
+const App = () => {
+  return (
+    <Router>
+      <Routes />
+    </Router>
+  )
+}
 
 
 ReactDOM.render(
-  <Task />,
+  <App />,
   document.getElementById('root')
 );
 
