@@ -2,7 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import MenuIcon from './static/media/svg/MenuIcon.svg'
 import CancelIcon from './static/media/svg/cancelMenu.svg'
-import Logo from './static/media/svg/SkillsTree.svg'
+
 
 
 const Nav = () => {
@@ -31,7 +31,7 @@ const Nav = () => {
             </div>}
           </div>
           <div className={`logo${isMenuTriggered ? ' toggled' : ''}`} onClick={() => history.push(`/`)}>
-            <img src={Logo} alt="Logo" />
+            <h1>SkillsTree.pl</h1>
           </div>
         </div>
         <div className="rightSide">

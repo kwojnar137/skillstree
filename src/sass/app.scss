@@ -11,7 +11,7 @@ body {
 .navBar{
   background-color: $navBarColor;
   .content{
-    padding: 30px;
+    padding: 0px 30px;
     display: flex;
     align-content: center;
     justify-content: space-between;
@@ -32,12 +32,13 @@ body {
       }
     }
     .logo{
+      cursor: pointer;
       text-align: center;
       display: flex;
       width: 100%;
       align-content: center;
       color: $fontNavColor;
-      padding: 24px;
+      padding-left: 30px;
     }
   }
 
@@ -62,7 +63,7 @@ body {
   .navBar{
     display:block;
     .content{
-      padding: 30px;
+      padding: 0px 30px;
       display: block;
     }
     .leftSide{
@@ -71,6 +72,7 @@ body {
         text-align: center;
         display: flex;
         justify-content: center;
+        padding-left: 0px;
       }
     }
     .rightSide{
@@ -129,6 +131,7 @@ body {
         display: flex;
         justify-content: left;
         transition: all 300ms;
+        padding-left: 25px;
       }
       .toggled{
         transform: translateX(60%) scale(0.7);
@@ -156,6 +159,7 @@ body {
 .contentContainer{
   background-color: $body-bg;
   height: 100vh;
+  margin: 25px;
 }
 
 
@@ -165,15 +169,10 @@ body {
 
   .categories{
     background-color: $categoriesCardBgColor;
-    width: 200px;
-    height: 600px;
+    height: min-content;
+    // height: 85vh;
   }
-  .paper{
-    border-radius: 4px;
-    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 
-     0px 1px 1px 0px rgba(0,0,0,0.14), 
-     0px 1px 3px 0px rgba(0,0,0,0.12);
-  }
+
   .categoriesContent{
     width: 100%;
     margin: 0px 25px 25px;
@@ -196,4 +195,52 @@ body {
 
   }
 }
+
+.tabs{
+  // padding: 10px;
+  .categoryName{
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  .categoryName:hover{
+    opacity: 0.7;
+  }
+  .subcategoriesContainer{
+    padding: 10px;
+    .subCategoryElement{
+      display: flex;
+      width: max-content;
+      // justify-content: flex-end;
+      font-size: 0.8rem;
+      padding: 3px 0px;
+      cursor: pointer;
+      .multiple{
+        width: 100%;
+        .subcategoryMenu{
+          padding: 20px;
+          position: absolute;
+          left: 210px;
+          // display:none;
+          .subcategoryMenuElement{
+            padding: 5px;
+          }
+        }
+      }
+      // .multiple:hover{
+      //   .subcategoryMenu{
+      //     display:block;
+      //   }
+      // }
+      .paper{
+        background-color: $categoriesCardBgColor;
+        border-radius: 4px;
+        box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 
+         0px 1px 1px 0px rgba(0,0,0,0.14), 
+         0px 1px 3px 0px rgba(0,0,0,0.12);
+      }
+    }
+  }
+}
+
 
