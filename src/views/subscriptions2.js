@@ -30,7 +30,7 @@ function SubCategories({ subCategory, id }) {
 
   // console.log('showSubmenu: ', showSubmenu)
 
-  const isObject = (typeof (subCategory) === 'object')
+
 
   const subCategoryTab = useMemo(() => {
     if (typeof (subCategory) === 'object') {
@@ -136,6 +136,18 @@ const CategoriesContent = () => {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 export default function Subscriptions() {
   const [data, setData] = useState(null)
 
@@ -157,27 +169,23 @@ export default function Subscriptions() {
 
   const categories = useMemo(() => {
     if (data != null) {
-      return data.map(category => {
-        console.log(category.categories)
-        console.log(category.subcategories)
-        console.log(category.subcategories.map(element => (
-          element
-        )))
+      return data.map((el, index) => {
+        <div key={`categoryTab-${index}`}>
+          <Category> {el.categories} </Category>
+          <SubCategories subcategories={el.subcategories} category={el.categories} />
+        </div>
+
       })
     }
     return null
   }, [data])
 
-  const subCategories = useMemo(() => {
-    console.log('data: ', data)
-  }, [data])
-
-
 
   return (
     <Layout>
       <div className="achievmentsContaier">
-        {data != null && (<Categories data={data} />)}
+        {data && categories}
+        {/* {data != null && (<Categories data={data} />)} */}
 
         {/* <SubCategoryMenu /> */}
         <CategoriesContent />

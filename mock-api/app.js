@@ -4,13 +4,31 @@ const port = 9000;
 const app = express();
 
 
-app.get('/api/categories', (req, res) => res.json([
+app.get('/api/categoriesdata', (req, res) => res.json([
   {
     "category": "Szkoła",
     "subcategories": [
       {
         "name": "Nauki ścisłe",
         "howManyCourses": "35",
+        "subcategories": [
+          {
+            "name": "Matematyka",
+            "howManyCourses": "12",
+          },
+          {
+            "name": "Fizyka",
+            "howManyCourses": "10",
+          },
+          {
+            "name": "Chemia",
+            "howManyCourses": "12",
+          },
+          {
+            "name": "Biologia",
+            "howManyCourses": "10",
+          },
+        ]
       },
       {
         "name": "Nauki humanistyczne",
@@ -41,6 +59,20 @@ app.get('/api/categories', (req, res) => res.json([
     "subcategories": [
       {
         "name": "Elektronika",
+        "howManyCourses": "35",
+        "subcategories": [
+          {
+            "name": "Podstawy elektroniki",
+            "howManyCourses": "12",
+          },
+          {
+            "name": "Arduino",
+            "howManyCourses": "10",
+          },
+        ]
+      },
+      {
+        "name": "Kolarstwo",
         "howManyCourses": "35",
       },
       {
