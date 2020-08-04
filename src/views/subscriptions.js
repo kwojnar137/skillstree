@@ -1,4 +1,6 @@
 import React, { useEffect, useState, useMemo } from 'react'
+import { useHistory } from 'react-router-dom'
+
 import Layout from '../layout'
 
 import axios from 'axios';
@@ -11,7 +13,8 @@ import '../sass/subscriptions.scss'
 export default function Subscriptions() {
   const [data, setData] = useState(null)
   const [whichHover, setWhichHover] = useState(null)
-  const [focus, setFocus] = useState(null)
+  const history = useHistory()
+
 
   function handleHover(e) {
     setWhichHover(e)
@@ -43,10 +46,11 @@ export default function Subscriptions() {
         <div
           className={parseInt(whichHover) === parseInt(id) ? 'mainCategoryLabel focused' : 'mainCategoryLabel'}
           key={`mainCategory-${id}`}
+          onClick={() => history.push(`${element.url}`)}
           id={`${id}`}
           onMouseEnter={(event) => handleHover(event.target.id)}
         >
-          {console.log('whichHover: ', whichHover)}
+          {console.log('element URL: ', element.url)}
           {element.category}
         </div>
       ))

@@ -11,90 +11,110 @@ app.get('/api/categoriesdata', (req, res) => res.json([
       {
         "name": "Nauki ścisłe",
         "howManyCourses": "35",
+        "url": "/science",
         "subcategories": [
           {
             "name": "Matematyka",
+            "url": "/math",
             "howManyCourses": "12",
           },
           {
             "name": "Fizyka",
+            "url": "/physics",
             "howManyCourses": "10",
           },
           {
             "name": "Chemia",
+            "url": "/chemistry",
             "howManyCourses": "12",
           },
           {
             "name": "Biologia",
+            "url": "/biology",
             "howManyCourses": "10",
           },
         ]
       },
       {
         "name": "Nauki humanistyczne",
+        "url": "/morecategories",
         "howManyCourses": "20",
       },
       {
         "name": "Przedmioty zawodowe",
         "howManyCourses": "20",
+        "url": "/morecategories",
         "subcategories": [
           {
             "name": "Informatyka",
+            "url": "/view",
             "howManyCourses": "10",
           },
           {
             "name": "mechatronika",
+            "url": "/view",
             "howManyCourses": "10",
           },
         ]
       },
       {
         "name": "Inne",
+        "url": "/view",
         "howManyCourses": "15",
       },
     ],
   },
   {
     "category": "Hobby",
+    "url": "/morecategories",
     "subcategories": [
       {
         "name": "Elektronika",
         "howManyCourses": "35",
+        "url": "/view",
         "subcategories": [
           {
             "name": "Podstawy elektroniki",
+            "url": "/view",
             "howManyCourses": "12",
           },
           {
             "name": "Arduino",
+            "url": "/view",
             "howManyCourses": "10",
           },
         ]
       },
       {
         "name": "Kolarstwo",
+        "url": "/view",
         "howManyCourses": "35",
       },
       {
         "name": "Fotografia",
+        "url": "/view",
         "howManyCourses": "20",
       },
       {
         "name": "Rysunek",
+        "url": "/view",
         "howManyCourses": "22",
         "subcategories": [
           {
             "name": "Rysunek techniczny",
+            "url": "/view",
             "howManyCourses": "12",
           },
           {
             "name": "Podstawy rysunku",
+            "url": "/view",
             "howManyCourses": "10",
           },
         ]
       },
       {
         "name": "Inne",
+        "url": "/view",
         "howManyCourses": "25",
       },
     ],
