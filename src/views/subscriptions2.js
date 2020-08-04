@@ -3,20 +3,7 @@ import Layout from '../layout'
 
 import axios from 'axios';
 
-
-// Wyciągnięcie podmenu
-// const multiSubCategory = useMemo(() => {
-//   if (typeof (subCategory) === 'object') {
-//     console.log('subCategory object: ', Object.values(subCategory))
-//     return Object.values(subCategory).map((element) => (
-//       <>{element}</>
-//     ))
-//   }
-//   return subCategory
-// }, [subCategory])
-
 function SubMenu({ elements }) {
-
   const elementsToShow = useMemo(() => {
     return elements.map((element, id) => (
       <div className="subcategoryMenuElement" key={`subcategoryMenuElement-${id}`}>
@@ -25,19 +12,16 @@ function SubMenu({ elements }) {
     ))
   }, [elements])
 
-
   return (
     <div className="subcategoryMenu paper">
       {elementsToShow}
     </div>
   )
-
 }
 
 
 function SubCategories({ subCategory, id }) {
-  const [isShown, setIsShown] = useState(false);
-  console.log(isShown)
+  // console.log(isShown)
   // const [showSubmenu, setShowSubmenu] = useState(false)
 
   // function handleClick() {
@@ -70,8 +54,6 @@ function SubCategories({ subCategory, id }) {
       {
         isObject &&
         <div className="multiple"
-          onMouseEnter={() => setIsShown(true)}
-          onMouseLeave={() => setIsShown(false)}
         >
           {subCategoryTab}
         </div>
@@ -91,7 +73,7 @@ function Tabs({ tab, id }) {
   const subcategories = useMemo(() => {
     return tab.subcategories.map((item, id) => (
       <div className="subCategoryElement" key={`subcategory-${id}`}>
-        <SubCategories subCategory={item}></SubCategories>
+        <SubCategories subCategory={item} />
       </div>
     ))
   }, [tab])
@@ -111,6 +93,7 @@ function Tabs({ tab, id }) {
 
 
 const Categories = ({ data }) => {
+  const [isShown, setIsShown] = useState(false);
 
   const categories = useMemo(() => {
     return data.map((item, id) => (
@@ -122,8 +105,12 @@ const Categories = ({ data }) => {
 
 
   return (
-    <div className="categories paper" >
+    <div className="categories paper"
+      onMouseEnter={() => setIsShown(true)}
+      onMouseLeave={() => setIsShown(false)}
+    >
       {categories}
+      {/* <SubCategoryMenu /> */}
     </div>
   )
 }
@@ -148,7 +135,8 @@ const CategoriesContent = () => {
   )
 }
 
-export default function Achievments() {
+
+export default function Subscriptions() {
   const [data, setData] = useState(null)
 
 
@@ -165,12 +153,38 @@ export default function Achievments() {
     fetchData();
   }, [])
 
+  // {users.map(user => <li key={user}>{user}</li>)}
+
+  const categories = useMemo(() => {
+    if (data != null) {
+      return data.map(category => {
+        console.log(category.categories)
+        console.log(category.subcategories)
+        console.log(category.subcategories.map(element => (
+          element
+        )))
+      })
+    }
+    return null
+  }, [data])
+
+  const subCategories = useMemo(() => {
+    console.log('data: ', data)
+  }, [data])
+
+
+
   return (
     <Layout>
       <div className="achievmentsContaier">
         {data != null && (<Categories data={data} />)}
+
+        {/* <SubCategoryMenu /> */}
         <CategoriesContent />
+
+
       </div>
     </Layout>
   )
 }
+

@@ -106,6 +106,7 @@ body {
           height: 100%;
           width: 240px;
           position: absolute;
+          z-index: 50;
           top: 0px;
           left: 0px;
           .sideBarList{
@@ -158,26 +159,178 @@ body {
 
 .contentContainer{
   background-color: $body-bg;
-  height: 100vh;
+  height: 80vh;
   margin: 25px;
 }
 
 
-.achievmentsContaier{
-  margin: 25px;
-  display: flex;
+// .achievmentsContaier{
+//   margin: 25px;
+//   display: flex;
 
-  .categories{
-    background-color: $categoriesCardBgColor;
+//   .categories{
+//     position: relative;
+//     z-index: 10;
+//     background-color: $categoriesCardBgColor;
+//     height: min-content;
+//     // height: 85vh;
+//   }
+//   .paper{
+//     background-color: $categoriesCardBgColor;
+//     border-radius: 4px;
+//     box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 
+//      0px 1px 1px 0px rgba(0,0,0,0.14), 
+//      0px 1px 3px 0px rgba(0,0,0,0.12);
+//   }
+
+//   .categoriesContent{
+//     width: 100%;
+//     margin: 0px 25px 25px;
+//     display: flex;
+//     flex-direction: column;
+
+//     .categoriesCard{
+//       width:100%;
+//       height: 100px;
+//       margin-bottom: 25px;
+//       background-color: white;
+//     }
+
+//     .paper{
+//       border-radius: 4px;
+//       box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 
+//        0px 1px 1px 0px rgba(0,0,0,0.14), 
+//        0px 1px 3px 0px rgba(0,0,0,0.12);
+//     }
+
+//   }
+// }
+
+
+// .tabs{
+//   padding: 10px;
+//   .categoryName{
+//     font-weight: bold;
+//     font-size: 1em;
+//     cursor: pointer;
+//   }
+//   .categoryName:hover{
+//     opacity: 0.7;
+//   }
+//   .subcategoriesContainer{
+//     padding: 10px;
+//     .subCategoryElement{
+//       display: flex;
+//       // width: max-content;
+//       // justify-content: flex-end;
+//       font-size: 0.8rem;
+//       padding: 3px 0px;
+//       cursor: pointer;
+//       .single{
+//         width: max-content;
+//       }
+//       .multiple{
+//         width: max-content;
+       
+//         // width: 100%;
+//         .subcategoryMenu{
+//           padding: 20px;
+//           position: absolute;
+          
+//           left: 100px;
+//           display:none;
+//           .subcategoryMenuElement{
+//             padding: 5px;
+            
+//           }
+//         }
+//       }
+//       .multiple:hover{
+//         .subcategoryMenu{
+//           display:block;
+//         }
+//       }
+//       .paper{
+//         background-color: $categoriesCardBgColor;
+//         border-radius: 4px;
+//         box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 
+//          0px 1px 1px 0px rgba(0,0,0,0.14), 
+//          0px 1px 3px 0px rgba(0,0,0,0.12);
+//       }
+//     }
+//   }
+// }
+
+
+// .menuContainer{
+//   // position: relative;
+//   // z-index: 10;
+//   background-color: $categoriesCardBgColor;
+//   height: min-content;
+//   // height: 85vh;
+
+//   .categorySection{
+//     .categoryHeader{
+//       padding: 5px 0px; 
+//       font-weight: bold;
+//       cursor: pointer;
+
+//     }
+//   }
+
+//   .subCategoryMenuContainer{
+
+//   }
+
+
+
+//   .categories{
+//     position: absolute;
+//     z-index: 10;
+//     background-color: $categoriesCardBgColor;
+//     height: min-content;
+//     // height: 85vh;
+//   }
+//   .paper{
+//     background-color: $categoriesCardBgColor;
+//     border-radius: 4px;
+//     box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 
+//      0px 1px 1px 0px rgba(0,0,0,0.14), 
+//      0px 1px 3px 0px rgba(0,0,0,0.12);
+//   }
+
+// }
+
+.subscriptionsContainer{
+  display: flex;
+  .menuContainer{
+    display: flex;
+    position: relative;
+    width: 250px;
     height: min-content;
-    // height: 85vh;
+    
+    .subCategoryMenuContainer{
+      position: absolute;
+      z-index: 10;
+      left: 100%;
+      height: 100%;
+      width: 100%;
+    }
+    .sections{
+      .categorySection{
+        .categoryHeader{
+          font-weight: bold;
+          padding: 5px 10px;
+        }
+      }
+    }
   }
 
   .categoriesContent{
-    width: 100%;
-    margin: 0px 25px 25px;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  margin: 0px 25px 25px;
+  display: flex;
+  flex-direction: column;
 
     .categoriesCard{
       width:100%;
@@ -185,62 +338,13 @@ body {
       margin-bottom: 25px;
       background-color: white;
     }
-
-    .paper{
-      border-radius: 4px;
-      box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 
-       0px 1px 1px 0px rgba(0,0,0,0.14), 
-       0px 1px 3px 0px rgba(0,0,0,0.12);
-    }
-
   }
 }
 
-.tabs{
-  // padding: 10px;
-  .categoryName{
-    font-weight: bold;
-    font-size: 1em;
-    cursor: pointer;
-  }
-  .categoryName:hover{
-    opacity: 0.7;
-  }
-  .subcategoriesContainer{
-    padding: 10px;
-    .subCategoryElement{
-      display: flex;
-      width: max-content;
-      // justify-content: flex-end;
-      font-size: 0.8rem;
-      padding: 3px 0px;
-      cursor: pointer;
-      .multiple{
-        width: 100%;
-        .subcategoryMenu{
-          padding: 20px;
-          position: absolute;
-          left: 210px;
-          // display:none;
-          .subcategoryMenuElement{
-            padding: 5px;
-          }
-        }
-      }
-      // .multiple:hover{
-      //   .subcategoryMenu{
-      //     display:block;
-      //   }
-      // }
-      .paper{
-        background-color: $categoriesCardBgColor;
-        border-radius: 4px;
-        box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 
-         0px 1px 1px 0px rgba(0,0,0,0.14), 
-         0px 1px 3px 0px rgba(0,0,0,0.12);
-      }
-    }
-  }
+.paper{
+  background-color: $categoriesCardBgColor;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 
+   0px 1px 1px 0px rgba(0,0,0,0.14), 
+   0px 1px 3px 0px rgba(0,0,0,0.12);
 }
-
-

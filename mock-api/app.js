@@ -4,6 +4,72 @@ const port = 9000;
 const app = express();
 
 
+app.get('/api/categories', (req, res) => res.json([
+  {
+    "category": "Szkoła",
+    "subcategories": [
+      {
+        "name": "Nauki ścisłe",
+        "howManyCourses": "35",
+      },
+      {
+        "name": "Nauki humanistyczne",
+        "howManyCourses": "20",
+      },
+      {
+        "name": "Przedmioty zawodowe",
+        "howManyCourses": "20",
+        "subcategories": [
+          {
+            "name": "Informatyka",
+            "howManyCourses": "10",
+          },
+          {
+            "name": "mechatronika",
+            "howManyCourses": "10",
+          },
+        ]
+      },
+      {
+        "name": "Inne",
+        "howManyCourses": "15",
+      },
+    ],
+  },
+  {
+    "category": "Hobby",
+    "subcategories": [
+      {
+        "name": "Elektronika",
+        "howManyCourses": "35",
+      },
+      {
+        "name": "Fotografia",
+        "howManyCourses": "20",
+      },
+      {
+        "name": "Rysunek",
+        "howManyCourses": "22",
+        "subcategories": [
+          {
+            "name": "Rysunek techniczny",
+            "howManyCourses": "12",
+          },
+          {
+            "name": "Podstawy rysunku",
+            "howManyCourses": "10",
+          },
+        ]
+      },
+      {
+        "name": "Inne",
+        "howManyCourses": "25",
+      },
+    ],
+  },
+
+]));
+
 app.get('/api/fake', (req, res) => res.json({ "fake": "foo" }));
 app.get('/api/categories', (req, res) => res.json([
   {
@@ -12,7 +78,7 @@ app.get('/api/categories', (req, res) => res.json([
   },
   {
     'categories': "Hobby",
-    "subcategories": [{ "Elektronika": ["Podstawy", "Arduino", "Raspberry Pi"] }, "Nauki humanistyczne", { "Przedmioty zawodowe": ["Informatyka", "mechatronika"] }, "Wychowanie fizyczne", "Inne"]
+    "subcategories": [{ "Elektronika": ["Podstawy", "Arduino", "Raspberry Pi"] }, "Fotografia", { "Rysunek": ["Rysunek techniczny", "Podstawy rysunku"] }, "Kolarstwo", "Inne"]
   },
 ]));
 

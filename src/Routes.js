@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 
 import Home from './home'
 import Achievments from './views/achievments'
-import Subscriptions from './views/subscriptions'
+import Subscriptions from './views/Subscriptions'
 import Partners from './views/partners'
 import Account from './views/account'
 
