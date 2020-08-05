@@ -1,11 +1,11 @@
 import React from "react"
 import { Route, Switch, Redirect } from "react-router-dom";
 
-import Home from './home'
-import Achievments from './views/achievments'
-import Subscriptions from './views/subscriptions'
-import Partners from './views/partners'
-import Account from './views/account'
+import Home from './views/Home'
+import Achievments from './views/Achievments'
+import Subscriptions from './views/Subscriptions'
+import Partners from './views/Partners'
+import Account from './views/Account'
 
 
 export default function () {

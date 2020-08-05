@@ -8,7 +8,6 @@ import CancelIcon from './static/media/svg/cancelMenu.svg'
 const Nav = () => {
   const history = useHistory()
   const [isMenuTriggered, setMenuTriggered] = React.useState(false)
-  console.log(isMenuTriggered)
 
   function toggleMenu() {
     setMenuTriggered(!isMenuTriggered)
