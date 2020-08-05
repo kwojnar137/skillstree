@@ -11,7 +11,7 @@ import '../sass/subscriptions.scss'
 
 
 export default function Subscriptions() {
-  const [data, setData] = useState(null)
+  const [data, setData] = useState([])
   const [whichHover, setWhichHover] = useState(null)
   const history = useHistory()
 
@@ -40,7 +40,8 @@ export default function Subscriptions() {
     fetchData();
   }, [])
 
-  const mainCategories = useMemo(() => {
+  const mainCategories = () => {
+    console.log('rendering...')
     if (data != null) {
       return data.map((element, id) => (
         <div
@@ -56,7 +57,7 @@ export default function Subscriptions() {
       ))
     }
     return null
-  }, [data, whichHover])
+  }
 
 
   return (
@@ -67,7 +68,18 @@ export default function Subscriptions() {
           onMouseLeave={(event) => handleLeave()}
         >
           <div className="tabs">
-            {mainCategories}
+            {data.map((element, id) => (
+              <div
+                className={parseInt(whichHover) === parseInt(id) ? 'mainCategoryLabel focused' : 'mainCategoryLabel'}
+                key={`mainCategory-${id}`}
+                onClick={() => history.push(`${element.url}`)}
+                id={`${id}`}
+                onMouseEnter={(event) => handleHover(event.target.id)}
+              >
+                {console.log('element URL: ', element.url)}
+                {element.category}
+              </div>
+            ))}
           </div>
 
           <SubCategoryMenu current={whichHover} />
