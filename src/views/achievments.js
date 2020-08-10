@@ -14,15 +14,27 @@ import { MakeMenu } from '../utils';
 export default function Achievments() {
   const [categories, setCategories] = useState(null)
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     await axios.get('/categories')
+  //       .then(res => {
+  //         setCategories(res.data)
+  //       })
+  //       .catch(err => {
+  //         setCategories(null)
+  //       })
+  //   }
+  //   fetchData();
+  // }, [])
+
   useEffect(() => {
-    const fetchData = async () => {
-      await axios.get('/categories')
-        .then(res => {
-          setCategories(res.data)
-        })
-        .catch(err => {
-          setCategories(null)
-        })
+    async function fetchData() {
+      try {
+        const res = await axios.get('/categories')
+        setCategories(res.data)
+      } catch (err) {
+        setCategories(null)
+      }
     }
     fetchData();
   }, [])
