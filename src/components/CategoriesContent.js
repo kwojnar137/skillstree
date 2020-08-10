@@ -2,6 +2,8 @@ import React from 'react'
 
 
 
+
+
 const CategoriesCard = () => {
   return (
     <div className="categoriesCard paper">

@@ -2,6 +2,157 @@ const express = require('express');
 
 const port = 9000;
 const app = express();
+app.get('/api/categories', (req, res) => res.json([
+  {
+    "name": "Szkoła",
+    "id": 1,
+    "parentid": null,
+  },
+  {
+    "name": "Hobby",
+    "id": 2,
+    "parentid": null,
+  },
+  {
+    "name": "Przedmioty ścisłe",
+    "id": 100,
+    "parentid": 1,
+  },
+  {
+    "name": "Przedmioty humanistyczne",
+    "id": 101,
+    "parentid": 1,
+  },
+  {
+    "name": "Przedmioty zawodowe",
+    "id": 102,
+    "parentid": 1,
+  },
+  {
+    "name": "Inne",
+    "id": 103,
+    "parentid": 1,
+  },
+  {
+    "name": "Elektronika",
+    "id": 104,
+    "parentid": 2,
+  },
+  {
+    "name": "Kolarstwo",
+    "id": 105,
+    "parentid": 2,
+  },
+  {
+    "name": "Fotografia",
+    "id": 106,
+    "parentid": 2,
+  },
+  {
+    "name": "Rysunek",
+    "id": 107,
+    "parentid": 2,
+  },
+  {
+    "name": "Inne",
+    "id": 108,
+    "parentid": 2,
+  },
+  {
+    "name": "Matematyka",
+    "id": 1000,
+    "parentid": 100,
+  },
+  {
+    "name": "Fizyka",
+    "id": 1001,
+    "parentid": 100,
+  },
+  {
+    "name": "Astronomia",
+    "id": 2000,
+    "parentid": 1001,
+  },
+  {
+    "name": "Fizyka kwantowa",
+    "id": 2001,
+    "parentid": 1001,
+  },
+  {
+    "name": "Chemia",
+    "id": 1002,
+    "parentid": 100,
+  },
+  {
+    "name": "Biologia",
+    "id": 1003,
+    "parentid": 100,
+  },
+  {
+    "name": "J. Polski",
+    "id": 1004,
+    "parentid": 101,
+  },
+  {
+    "name": "Gramatyka",
+    "id": 1005,
+    "parentid": 101,
+  },
+  {
+    "name": "Literatura",
+    "id": 1006,
+    "parentid": 101,
+  },
+  {
+    "name": "Historia",
+    "id": 1007,
+    "parentid": 101,
+  },
+  {
+    "name": "J. angielski",
+    "id": 1008,
+    "parentid": 101,
+  },
+  {
+    "name": "Muzyka",
+    "id": 1009,
+    "parentid": 101,
+  },
+  {
+    "name": "Informatyka",
+    "id": 1009,
+    "parentid": 102,
+  },
+  {
+    "name": "Mechatronika",
+    "id": 1009,
+    "parentid": 102,
+  },
+  {
+    "name": "Podstawy Elektroniki",
+    "id": 1010,
+    "parentid": 104,
+  },
+  {
+    "name": "Podstawy Arduino",
+    "id": 1011,
+    "parentid": 104,
+  },
+  {
+    "name": "Rysunek techniczny",
+    "id": 1010,
+    "parentid": 107,
+  },
+  {
+    "name": "Podstawy rysunku",
+    "id": 1011,
+    "parentid": 107,
+  },
+
+
+]));
+
+
 
 
 app.get('/api/categoriesdata', (req, res) => res.json([
@@ -154,7 +305,7 @@ app.get('/api/categoriesdata', (req, res) => res.json([
 
 ]));
 
-app.get('/api/science', (req, res) => res.json(
+app.get('/api/science', (req, res) => res.json([
   {
     "title": "klasyczny kurs z matematyki",
     "category": ["Matematyka"],
@@ -209,9 +360,9 @@ app.get('/api/science', (req, res) => res.json(
     "price": "54zł",
     "img": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
   },
-));
+]));
 
-app.get('/api/humanites', (req, res) => res.json(
+app.get('/api/humanites', (req, res) => res.json([
   {
     "title": "Język polski, kurs gramatyki",
     "category": ["J. polski", "Gramatyka"],
@@ -275,12 +426,12 @@ app.get('/api/humanites', (req, res) => res.json(
     "price": "54zł",
     "img": 'https://www.kopernik.org.pl/typo3temp/_processed_/csm_Muzyka_w_bogactwie_zjawisk_dzwiekowych_46771e9f89.jpg',
   },
-));
+]));
 
 
 
 app.get('/api/fake', (req, res) => res.json({ "fake": "foo" }));
-app.get('/api/categories', (req, res) => res.json([
+app.get('/api/cat', (req, res) => res.json([
   {
     'categories': "Szkoła",
     "subcategories": ["Nauki ścisłe", "Nauki humanistyczne", { "Przedmioty zawodowe": ["Informatyka", "mechatronika"] }, "Wychowanie fizyczne", "Inne"]
@@ -291,144 +442,140 @@ app.get('/api/categories', (req, res) => res.json([
   },
 ]));
 
-app.get('/api/courses', (req, res) => res.json(
-  [
-    {
-      "categories": "szkoła",
-      "subcategorie": "przedmioty_ścisłe",
-      "title": "klasyczny kurs z matematyki",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
-      "author": "Stefan Banach ",
-      "rating": "9.21",
-      "price": "299zł",
-      "img": "https://cdn-lubimyczytac.pl/upload/books/61000/61086/352x500.jpg",
-    },
-    {
-      "categories": "szkoła",
-      "subcategorie": "przedmioty_ścisłe",
-      "title": "klasyczny kurs z matematyki",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
-      "author": "Stefan Banach ",
-      "rating": "9.21",
-      "price": "299zł",
-      "img": "https://cdn-lubimyczytac.pl/upload/books/61000/61086/352x500.jpg",
-    },
-    {
-      "categories": "szkoła",
-      "subcategorie": "przedmioty_ścisłe",
-      "title": "klasyczny kurs z matematyki",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
-      "author": "Stefan Banach ",
-      "rating": "9.21",
-      "price": "299zł",
-      "img": "https://cdn-lubimyczytac.pl/upload/books/61000/61086/352x500.jpg",
-    },
+app.get('/api/courses', (req, res) => res.json([
+  {
+    "categories": "szkoła",
+    "subcategorie": "przedmioty_ścisłe",
+    "title": "klasyczny kurs z matematyki",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
+    "author": "Stefan Banach ",
+    "rating": "9.21",
+    "price": "299zł",
+    "img": "https://cdn-lubimyczytac.pl/upload/books/61000/61086/352x500.jpg",
+  },
+  {
+    "categories": "szkoła",
+    "subcategorie": "przedmioty_ścisłe",
+    "title": "klasyczny kurs z matematyki",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
+    "author": "Stefan Banach ",
+    "rating": "9.21",
+    "price": "299zł",
+    "img": "https://cdn-lubimyczytac.pl/upload/books/61000/61086/352x500.jpg",
+  },
+  {
+    "categories": "szkoła",
+    "subcategorie": "przedmioty_ścisłe",
+    "title": "klasyczny kurs z matematyki",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
+    "author": "Stefan Banach ",
+    "rating": "9.21",
+    "price": "299zł",
+    "img": "https://cdn-lubimyczytac.pl/upload/books/61000/61086/352x500.jpg",
+  },
 
-  ]
-));
+]));
 
 
-app.get('/api/courses2', (req, res) => res.json(
-  [{
-    "szkoła": {
-      "przedmioty_ścisłe": {
-        "klasyczny kurs z matematyki": {
-          "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
-          "autor": "Stefan Banach ",
-          "ocena": "10",
-          "cena": "299zł",
-          "img": "https://cdn-lubimyczytac.pl/upload/books/61000/61086/352x500.jpg",
-        },
-        "nowoczesny kurs z matematyki na pełnej petardzie": {
-          "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
-          "autor": "Rajash",
-          "ocena": "8.21",
-          "cena": "129zł",
-          "img": "https://i.ytimg.com/vi/X5p0AafYztA/maxresdefault.jpg",
-        },
-        "Fizyka dla nieogarniętych": {
-          "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
-          "autor": "Mad Max",
-          "ocena": "5.4",
-          "cena": "73zł",
-          "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/ChP94_-_Fizyka_PL.svg/1200px-ChP94_-_Fizyka_PL.svg.png",
-        },
-        "Fizyka dla studentów": {
-          "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
-          "autor": "prof. Garneczek",
-          "ocena": "8.1",
-          "cena": "54zł",
-          "img": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
-        },
-        "Matematyka w fizyce, chemii i biologi": {
-          "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
-          "autor": "prof. Miećko",
-          "ocena": "8.1",
-          "cena": "184zł",
-          "img": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
-        },
-        "Fizyka dla medyków": {
-          "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
-          "autor": "lek. Suchocki",
-          "ocena": "8.25.",
-          "cena": "199zł",
-          "img": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
-        }
+app.get('/api/courses2', (req, res) => res.json([{
+  "szkoła": {
+    "przedmioty_ścisłe": {
+      "klasyczny kurs z matematyki": {
+        "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
+        "autor": "Stefan Banach ",
+        "ocena": "10",
+        "cena": "299zł",
+        "img": "https://cdn-lubimyczytac.pl/upload/books/61000/61086/352x500.jpg",
       },
-      "przedmioty_humanistyczne": {
-        "Język polski, kurs gramatyki": {
-          "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
-          "autor": "mgr Ewa Drabczyk",
-          "ocena": "8.25.",
-          "cena": "199zł",
-          "img": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
-        },
-        "Język polski, kurs litertury": {
-          "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
-          "autor": "mgr Ewa Drabczyk",
-          "ocena": "8.25.",
-          "cena": "199zł",
-          "img": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
-        },
-        "Historia starożytna": {
-          "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
-          "autor": "Mieczysław Gałczyk",
-          "ocena": "8.25.",
-          "cena": "199zł",
-          "img": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
-        },
-        "Historia po łebkach": {
-          "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
-          "autor": "Maria Feduniewicz",
-          "ocena": "8.25.",
-          "cena": "199zł",
-          "img": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
-        },
-        "Język angielski dla początkujących ": {
-          "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
-          "autor": "Marcin Grabczyk",
-          "ocena": "8.25.",
-          "cena": "199zł",
-          "img": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
-        },
-        "Język angielski metodami Memo ": {
-          "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
-          "autor": "Mikołaj Filipow",
-          "ocena": "8.25.",
-          "cena": "199zł",
-          "img": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
-        },
-        "Teoria muzyki": {
-          "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
-          "autor": "Artur Rojek",
-          "ocena": "8.25.",
-          "cena": "199zł",
-          "img": 'https://www.kopernik.org.pl/typo3temp/_processed_/csm_Muzyka_w_bogactwie_zjawisk_dzwiekowych_46771e9f89.jpg',
-        },
+      "nowoczesny kurs z matematyki na pełnej petardzie": {
+        "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
+        "autor": "Rajash",
+        "ocena": "8.21",
+        "cena": "129zł",
+        "img": "https://i.ytimg.com/vi/X5p0AafYztA/maxresdefault.jpg",
+      },
+      "Fizyka dla nieogarniętych": {
+        "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
+        "autor": "Mad Max",
+        "ocena": "5.4",
+        "cena": "73zł",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/ChP94_-_Fizyka_PL.svg/1200px-ChP94_-_Fizyka_PL.svg.png",
+      },
+      "Fizyka dla studentów": {
+        "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
+        "autor": "prof. Garneczek",
+        "ocena": "8.1",
+        "cena": "54zł",
+        "img": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
+      },
+      "Matematyka w fizyce, chemii i biologi": {
+        "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
+        "autor": "prof. Miećko",
+        "ocena": "8.1",
+        "cena": "184zł",
+        "img": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
+      },
+      "Fizyka dla medyków": {
+        "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
+        "autor": "lek. Suchocki",
+        "ocena": "8.25.",
+        "cena": "199zł",
+        "img": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
+      }
+    },
+    "przedmioty_humanistyczne": {
+      "Język polski, kurs gramatyki": {
+        "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
+        "autor": "mgr Ewa Drabczyk",
+        "ocena": "8.25.",
+        "cena": "199zł",
+        "img": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
+      },
+      "Język polski, kurs litertury": {
+        "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
+        "autor": "mgr Ewa Drabczyk",
+        "ocena": "8.25.",
+        "cena": "199zł",
+        "img": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
+      },
+      "Historia starożytna": {
+        "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
+        "autor": "Mieczysław Gałczyk",
+        "ocena": "8.25.",
+        "cena": "199zł",
+        "img": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
+      },
+      "Historia po łebkach": {
+        "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
+        "autor": "Maria Feduniewicz",
+        "ocena": "8.25.",
+        "cena": "199zł",
+        "img": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
+      },
+      "Język angielski dla początkujących ": {
+        "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
+        "autor": "Marcin Grabczyk",
+        "ocena": "8.25.",
+        "cena": "199zł",
+        "img": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
+      },
+      "Język angielski metodami Memo ": {
+        "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
+        "autor": "Mikołaj Filipow",
+        "ocena": "8.25.",
+        "cena": "199zł",
+        "img": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
+      },
+      "Teoria muzyki": {
+        "opis": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
+        "autor": "Artur Rojek",
+        "ocena": "8.25.",
+        "cena": "199zł",
+        "img": 'https://www.kopernik.org.pl/typo3temp/_processed_/csm_Muzyka_w_bogactwie_zjawisk_dzwiekowych_46771e9f89.jpg',
       },
     },
-  }]
-));
+  },
+}]));
 
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))

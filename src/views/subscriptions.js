@@ -6,7 +6,7 @@ import Layout from '../layout'
 import axios from 'axios';
 import { SubCategoryMenu } from '../components/SubCategoryMenu';
 import CategoriesContent from '../components/CategoriesContent';
-import '../sass/subscriptions.scss'
+import '../sass/explore.scss'
 
 
 
@@ -27,7 +27,7 @@ export default function Subscriptions() {
 
   useEffect(() => {
     const fetchData = async () => {
-      axios.get('/categoriesdata')
+      await axios.get('/categoriesdata')
         .then(res => {
           setData(res.data)
         })
@@ -39,10 +39,11 @@ export default function Subscriptions() {
   }, [])
 
 
+
   return (
     <Layout>
-      <div className="subsContent">
-        <div
+      <div className="container">
+        {data && <div
           className="sideMenu paper"
           onMouseLeave={(event) => handleLeave()}
         >
@@ -59,9 +60,8 @@ export default function Subscriptions() {
               </div>
             ))}
           </div>
-
           <SubCategoryMenu current={whichHover} />
-        </div>
+        </div>}
         <CategoriesContent />
       </div>
 
