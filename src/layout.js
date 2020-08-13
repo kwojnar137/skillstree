@@ -2,8 +2,20 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import MenuIcon from './static/media/svg/MenuIcon.svg'
 import CancelIcon from './static/media/svg/cancelMenu.svg'
+import { Link } from 'react-router-dom'
+import styled, { css } from 'styled-components';
 
 
+const StyledLink = styled(Link)`
+  color: rgba(0, 0, 0, 0.74);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 1rem;
+  text-decoration:none;
+`;
 
 const Nav = () => {
   const history = useHistory()
@@ -21,11 +33,11 @@ const Nav = () => {
             {isMenuTriggered ? <img src={CancelIcon} alt="Cancel Icon" /> : <img src={MenuIcon} alt="Menu Icon" />}
             {isMenuTriggered && <div className={`sideBar${isMenuTriggered ? ' active' : ''}`}>
               <div className='sideBarList'>
-                <div onClick={() => history.push(`/achievments`)}>Osiągnięcia</div>
-                <div onClick={() => history.push(`/subscriptions`)}>Subskrypcje</div>
-                <div onClick={() => history.push(`/partners`)}>Partnerzy</div>
-                <div onClick={() => history.push(`/account`)}>Konto</div>
-                <div onClick={() => history.push(`/logout`)}>Wyloguj</div>
+                <StyledLink to="/achievments">Osiągnięcia</StyledLink>
+                <StyledLink to="/subscriptions">Subskrypcje</StyledLink>
+                <StyledLink to="/partners">Partnerzy</StyledLink>
+                <StyledLink to="/account">Konto</StyledLink>
+                <StyledLink to="/logout">Wyloguj</StyledLink>
               </div>
             </div>}
           </div>
@@ -35,11 +47,11 @@ const Nav = () => {
         </div>
         <div className="rightSide">
           <div className="navLinks">
-            <div onClick={() => history.push(`/achievments`)}>Osiągnięcia</div>
-            <div onClick={() => history.push(`/subscriptions`)}>Subskrypcje</div>
-            <div onClick={() => history.push(`/partners`)}>Partnerzy</div>
-            <div onClick={() => history.push(`/account`)}>Konto</div>
-            <div onClick={() => history.push(`/logout`)}>Wyloguj</div>
+            <StyledLink to="/achievments">Osiągnięcia</StyledLink>
+            <StyledLink to="/subscriptions">Subskrypcje</StyledLink>
+            <StyledLink to="/partners">Partnerzy</StyledLink>
+            <StyledLink to="/account">Konto</StyledLink>
+            <StyledLink to="/logout">Wyloguj</StyledLink>
           </div>
         </div>
       </div>
