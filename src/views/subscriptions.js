@@ -5,7 +5,7 @@ import Layout from '../layout'
 
 import axios from 'axios';
 import { SubCategoryMenu } from '../components/SubCategoryMenu';
-import CategoriesContent from '../components/CategoriesContent';
+import Content from '../components/Content';
 import '../sass/explore.scss'
 
 
@@ -62,7 +62,7 @@ export default function Subscriptions() {
           </div>
           <SubCategoryMenu current={whichHover} />
         </div>}
-        <CategoriesContent />
+        <Content />
       </div>
 
     </Layout>

@@ -1,30 +1,21 @@
-import React, { useState, useEffect } from 'react'
-import DropdownMenu from './components/DropdownMenu'
+export function MakeFamilly({ categories }) {
 
-
-
-export function MakeMenu({ categories }) {
 
   const familly = categories.filter((member) => {
-    return member.parentid === null
+    return member.parentId === null
   })
 
   function fillFamillyArray(familly) {
-    familly.forEach((member, id) => {
-      const childrens = categories.filter(child => { return child.parentid === member.id })
+    familly.forEach((member) => {
+      const childrens = categories.filter(child => { return child.parentId === member.id })
       Object.assign(member, { childrens: childrens })
       fillFamillyArray(childrens)
     })
   }
-
   fillFamillyArray(familly)
 
 
+  return familly
 
-  return (
-    <div className='menuContainer'>
-      <DropdownMenu famillyArray={familly} />
-    </div>
-  )
 
 }

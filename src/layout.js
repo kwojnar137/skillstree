@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import MenuIcon from './static/media/svg/MenuIcon.svg'
 import CancelIcon from './static/media/svg/cancelMenu.svg'
 import { Link } from 'react-router-dom'
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 
 const StyledLink = styled(Link)`

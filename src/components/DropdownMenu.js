@@ -1,8 +1,15 @@
 import React, { useState } from 'react'
+import { useChoice } from '../views/Achievments'
 
 
 function Childrens({ parentID, famillyArray }) {
   const [whichHover, setWhichHover] = useState(null)
+  const { choice, updateChoice } = useChoice()
+
+
+  function handleChoice(e) {
+    updateChoice(parseInt(e.target.id))
+  }
 
   function handleLeave(e) {
     setWhichHover(null)
@@ -19,7 +26,14 @@ function Childrens({ parentID, famillyArray }) {
   if (parent != null) {
     return <div className="childrens">
       {parent.childrens.map((child, id) => (
-        <div className="child paper" key={id} id={child.id} onMouseEnter={(event) => findChildren(event)} onMouseLeave={(e) => handleLeave(e)}>
+        <div
+          className="child paper"
+          key={id} id={child.id}
+          onMouseEnter={(event) => findChildren(event)}
+          onMouseLeave={(e) => handleLeave(e)}
+          onClick={(e) => { handleChoice(e) }}
+
+        >
           {child.name}
           {parseInt(whichHover) === parseInt(child.id) ? <><Childrens parentID={whichHover} famillyArray={parent.childrens} /> </> : null}
         </div>
@@ -33,6 +47,11 @@ function Childrens({ parentID, famillyArray }) {
 
 export default function DropdownMenu({ famillyArray }) {
   const [whichHover, setWhichHover] = useState(null)
+  const { choice, updateChoice } = useChoice()
+
+  function handleChoice(e) {
+    updateChoice(parseInt(e.target.id))
+  }
 
   function findChildren(e) {
     setWhichHover(e.target.id)
@@ -52,6 +71,7 @@ export default function DropdownMenu({ famillyArray }) {
               className={parseInt(whichHover) === parseInt(category.id) ? 'mainCategory paper focused' : 'mainCategory paper'}
               id={category.id}
               key={id}
+              onClick={(e) => { handleChoice(e) }}
               onMouseEnter={(e) => findChildren(e)}
             >
               {category.name}
