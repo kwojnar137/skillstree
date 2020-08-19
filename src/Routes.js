@@ -1,17 +1,27 @@
 import React from "react"
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
-import Home from './home'
-import Explore from './explore'
-import Details from './Details'
+import Home from './views/Home'
+import Achievments from './views/Achievments'
+import Subscriptions from './views/Subscriptions'
+import Partners from './views/Partners'
+import Account from './views/Account'
+
 
 export default function () {
     return (
         <Switch>
-            <Route path="/explore" component={Explore} />
-            <Route path='/detail/:id' component={Details} />
+            <Route path="/achievments" component={Achievments} />
+            <Route path='/subscriptions' component={Subscriptions} />
+            <Route path="/partners" component={Partners} />
+            <Route path='/account' component={Account} />
+            <Route path='/logout'>
+                <Redirect to='/' />
+            </Route>
             <Route path="/" component={Home} exact />
             <Route render={() => <h3> Nie ma takiej strony</h3>} />
         </Switch>
     )
 }
+
+
