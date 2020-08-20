@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
+
+
 import styled from 'styled-components';
+
 
 import AddIcon from '@material-ui/icons/Add';
 import ShareIcon from '@material-ui/icons/Share';
@@ -10,105 +13,20 @@ import Grid from '@material-ui/core/Grid';
 
 import { trim } from '../utils';
 
-
-
-
-const ContentCard = styled.div`
-      margin: 10px;
-      position: relative;
-
-      background-color: white;
-      background-color: #ffffff;
-      border-radius: 4px;
-      box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 
-      0px 1px 1px 0px rgba(0,0,0,0.14), 
-      0px 1px 3px 0px rgba(0,0,0,0.12);
-
-      &:hover {
-        background-color: #fcfcfc;
-      }
-`
-
-
-const MainInfo = styled.div`
-
-`
-
-const Title = styled.div`
-  font-size: 1.1rem;
-  padding: 5px;
-  font-weight:bold;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-`
-
-
-const Authors = styled.div`
-  padding: 5px;
-  opacity: 0.8;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-`
-
-const ImageContainer = styled.div`
-height: 200px;
-display: flex;
-justify-content: center;
-align-items: center;
-  overflow: hidden;
-`
-
-const Image = styled.img`
-  padding: 5px 0px;
-  width: 100%;
-`
-
-const Add = styled.div`
-
-display: flex;
-justify-content: center;
-`
-
-const Description = styled.div`
-  padding: 10px;
-  opacity: 0.7;
-`
-
-const ExpandIcon = styled.div`
-transform: ${props => (props.rotateAction ? 'rotate(180deg)' : 'rotate(0deg)')};
-display: flex;
-justify-content: center;
-`
-
-const MoreInfo = styled.div`
-display: flex;
-justify-content: center;
-`
-
-const Share = styled.div`
-display: flex;
-justify-content: center;
-`
-const CardFoobar = styled.div`
-padding: 10px;
-  
-`
-
-const Rating = styled.div`
-  display: flex;
-  font-size: 1em;
-  align-items:center;
-  justify-content: center;
-  color: #FFC200;
-  text-shadow: 1px 1px 2px gold;
-`
-
-const RatingContainer = styled.div`
-display: block;
-text-align: center;
-`
+import ContentCard from "./ContentCard";
+import Title from "./Title";
+import Authors from "./Authors";
+import ImageContainer from "./ImageContainer";
+import Image from "./Image";
+import Add from "./Add";
+import Description from "./Description";
+import ExpandIcon from "./ExpandIcon";
+import MoreInfo from "./MoreInfo";
+import Share from "./Share";
+import CardFoobar from "./CardFoobar";
+import Rating from "./Rating";
+import RatingContainer from "./RatingContainer";
+import MainInfo from "./MainInfo";
 
 
 export default function Course({ course }) {
@@ -122,7 +40,6 @@ export default function Course({ course }) {
   const trimDesc = trim(course.description, showDesc, 160)
 
   return (
-
     <Grid item xs={12} sm={12} md={6} lg={3}>
       <ContentCard>
         <Grid container justify="center" alignItems="center">

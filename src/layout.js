@@ -2,20 +2,11 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import MenuIcon from './static/media/svg/MenuIcon.svg'
 import CancelIcon from './static/media/svg/cancelMenu.svg'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components';
+import StyledLink from './components/StyledLink'
 
 
-const StyledLink = styled(Link)`
-  color: rgba(0, 0, 0, 0.74);
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 1rem;
-  text-decoration:none;
-`;
+
+
 
 const Nav = () => {
   const [isMenuTriggered, setMenuTriggered] = React.useState(false)
