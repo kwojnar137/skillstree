@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
-import { useChoice } from '../views/Achievments'
-
+// import { useChoice } from '../context/choice'
+import { useChoiceState, useChoiceSet } from '../context/choice'
 
 function Childrens({ parentID, famillyArray }) {
+  const { choice } = useChoiceState()
+  const setChoice = useChoiceSet()
+
   const [whichHover, setWhichHover] = useState(null)
-  const { choice, updateChoice } = useChoice()
+  // const { choice, updateChoice } = useChoice()
 
 
   function handleChoice(e) {
-    updateChoice(parseInt(e.target.id))
+    setChoice({ choice: parseInt(e.target.id) })
   }
 
   function handleLeave(e) {
@@ -47,10 +50,11 @@ function Childrens({ parentID, famillyArray }) {
 
 export default function DropdownMenu({ famillyArray }) {
   const [whichHover, setWhichHover] = useState(null)
-  const { choice, updateChoice } = useChoice()
+  // const { choice, updateChoice } = useChoice()
+  const setChoice = useChoiceSet()
 
   function handleChoice(e) {
-    updateChoice(parseInt(e.target.id))
+    setChoice({ choice: parseInt(e.target.id) })
   }
 
   function findChildren(e) {

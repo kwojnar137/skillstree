@@ -10,24 +10,18 @@ import Content from '../components/Content';
 import DropdownMenu from '../components/DropdownMenu'
 
 import { MakeFamilly } from '../utils';
+import { useChoice, ChoiceProvider } from '../context/choice'
 
 
-
-export const ChoiceContext = createContext({})
-export function useChoice() {
-  const { choice, updateChoice } = useContext(ChoiceContext)
-  return { choice, updateChoice }
-}
 
 
 export default function Achievments() {
   const [categories, setCategories] = useState(null)
-  const [choice, setChoice] = useState(null)
+  // const { choice, updateChoice } = useChoice()
+
   const [familly, setFamilly] = useState(null)
 
-  function updateChoice(newChoice) {
-    setChoice(newChoice)
-  }
+
 
 
   useEffect(() => {
@@ -54,16 +48,11 @@ export default function Achievments() {
   return (
     <Layout>
       <div className="container">
-        <ChoiceContext.Provider
-          value={{
-            choice,
-            updateChoice
-          }}
-        >
+        <ChoiceProvider>
           {/* {categories && <MakeFamilly categories={categories} familly={familly} setFamilly={setFamilly} />} */}
           {familly && <div className='menuContainer'> <DropdownMenu famillyArray={familly} /> </div>}
-          {familly && <Content choice={choice} familly={familly} />}
-        </ChoiceContext.Provider>
+          {familly && <Content familly={familly} />}
+        </ChoiceProvider>
       </div>
 
     </Layout>

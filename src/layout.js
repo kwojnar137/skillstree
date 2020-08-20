@@ -18,7 +18,6 @@ const StyledLink = styled(Link)`
 `;
 
 const Nav = () => {
-  const history = useHistory()
   const [isMenuTriggered, setMenuTriggered] = React.useState(false)
 
   function toggleMenu() {
@@ -33,25 +32,17 @@ const Nav = () => {
             {isMenuTriggered ? <img src={CancelIcon} alt="Cancel Icon" /> : <img src={MenuIcon} alt="Menu Icon" />}
             {isMenuTriggered && <div className={`sideBar${isMenuTriggered ? ' active' : ''}`}>
               <div className='sideBarList'>
-                <StyledLink to="/achievments">Osiągnięcia</StyledLink>
-                <StyledLink to="/subscriptions">Subskrypcje</StyledLink>
-                <StyledLink to="/partners">Partnerzy</StyledLink>
-                <StyledLink to="/account">Konto</StyledLink>
-                <StyledLink to="/logout">Wyloguj</StyledLink>
+                <StyledLink to="/courses">Kursy</StyledLink>
               </div>
             </div>}
           </div>
-          <div className={`logo${isMenuTriggered ? ' toggled' : ''}`} onClick={() => history.push(`/`)}>
-            <h1>SkillsTree.pl</h1>
+          <div className={`logo${isMenuTriggered ? ' toggled' : ''}`}>
+            <StyledLink to="/"><h1>SkillsTree.pl</h1></StyledLink>
           </div>
         </div>
         <div className="rightSide">
           <div className="navLinks">
-            <StyledLink to="/achievments">Osiągnięcia</StyledLink>
-            <StyledLink to="/subscriptions">Subskrypcje</StyledLink>
-            <StyledLink to="/partners">Partnerzy</StyledLink>
-            <StyledLink to="/account">Konto</StyledLink>
-            <StyledLink to="/logout">Wyloguj</StyledLink>
+            <StyledLink to="/courses">Kursy</StyledLink>
           </div>
         </div>
       </div>

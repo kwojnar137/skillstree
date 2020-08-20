@@ -3,9 +3,12 @@ import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 
 import Course from './Course';
+import { useChoiceState } from '../context/choice'
 
 
-export default function Content({ choice, familly }) {
+export default function Content({ familly }) {
+  // const { choice, updateChoice } = useChoice()
+  const { choice } = useChoiceState()
   const [courses, setCourses] = useState(null)
   const [filtered, setFiltered] = useState(null)
 
