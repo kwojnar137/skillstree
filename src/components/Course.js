@@ -8,6 +8,8 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import StarOutlined from '@material-ui/icons/StarOutlined';
 import Grid from '@material-ui/core/Grid';
 
+import { trim } from '../utils';
+
 
 
 
@@ -117,16 +119,7 @@ export default function Course({ course }) {
     setShowDesc(!showDesc)
   }
 
-
-  function trim(desc) {
-    if (showDesc === false) {
-      desc = desc.slice(0, 160)
-      desc = desc + '...'
-    }
-    return desc
-  }
-
-  const trimDesc = trim(course.description)
+  const trimDesc = trim(course.description, showDesc, 160)
 
   return (
 

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-// import { useChoice } from '../context/choice'
 import { useChoiceState, useChoiceSet } from '../context/choice'
 
 function Childrens({ parentID, famillyArray }) {
@@ -7,7 +6,6 @@ function Childrens({ parentID, famillyArray }) {
   const setChoice = useChoiceSet()
 
   const [whichHover, setWhichHover] = useState(null)
-  // const { choice, updateChoice } = useChoice()
 
 
   function handleChoice(e) {

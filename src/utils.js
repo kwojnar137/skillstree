@@ -1,6 +1,5 @@
 export function MakeFamilly({ categories }) {
 
-
   const familly = categories.filter((member) => {
     return member.parentId === null
   })
@@ -16,6 +15,14 @@ export function MakeFamilly({ categories }) {
 
 
   return familly
+}
 
 
+
+export function trim(toTrim, trigger, size) {
+  if (trigger === false) {
+    toTrim = toTrim.slice(0, size)
+    toTrim = toTrim + '...'
+  }
+  return toTrim
 }

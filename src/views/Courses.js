@@ -1,7 +1,5 @@
 import React, { useState, useEffect, createContext, useContext } from 'react'
 import axios from 'axios';
-// import styled from 'styled-components'
-
 
 import Layout from '../layout'
 import '../sass/explore.scss'
@@ -17,8 +15,6 @@ import { useChoice, ChoiceProvider } from '../context/choice'
 
 export default function Achievments() {
   const [categories, setCategories] = useState(null)
-  // const { choice, updateChoice } = useChoice()
-
   const [familly, setFamilly] = useState(null)
 
 
@@ -49,7 +45,6 @@ export default function Achievments() {
     <Layout>
       <div className="container">
         <ChoiceProvider>
-          {/* {categories && <MakeFamilly categories={categories} familly={familly} setFamilly={setFamilly} />} */}
           {familly && <div className='menuContainer'> <DropdownMenu famillyArray={familly} /> </div>}
           {familly && <Content familly={familly} />}
         </ChoiceProvider>

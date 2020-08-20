@@ -7,12 +7,9 @@ import { useChoiceState } from '../context/choice'
 
 
 export default function Content({ familly }) {
-  // const { choice, updateChoice } = useChoice()
   const { choice } = useChoiceState()
   const [courses, setCourses] = useState(null)
   const [filtered, setFiltered] = useState(null)
-
-  console.log({ choice }) //Wskazany w menu wybór 
 
   useEffect(() => {
     async function fetchData() {
@@ -25,8 +22,6 @@ export default function Content({ familly }) {
     }
     fetchData();
   }, [])
-
-
 
 
   function findChildrensId(famillyPart, founded = false) {
@@ -59,16 +54,8 @@ export default function Content({ familly }) {
 
       })
       setFiltered(coursesFiltered)
-      // console.log({ coursesFiltered })
     }
   }, [choice])
-
-
-  console.log(courses) //przefiltrowane kursy
-
-
-
-
 
 
   return (

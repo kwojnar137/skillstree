@@ -1,23 +1,9 @@
 import React, { useState, createContext, useContext } from 'react'
 
-// export const ChoiceContext = createContext()
-
 
 const ChoiceStateContext = React.createContext()
 const ChoiceSetContext = React.createContext()
 
-
-
-// export function useChoice() {
-
-//   function updateChoice(newChoice) {
-//     setChoice(newChoice)
-//   }
-
-//   const { choice, updateChoice } = useContext(ChoiceContext)
-//   const [choice, setChoice] = useState(null)
-//   return { choice, updateChoice }
-// }
 
 function useChoiceState() {
   const context = React.useContext(ChoiceStateContext)
