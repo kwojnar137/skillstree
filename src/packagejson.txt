@@ -21,7 +21,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
+    // "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
@@ -57,9 +58,8 @@
     "babel-loader": "^8.1.0",
     "chromatic": "^5.0.0",
     "connect-api-mocker": "^1.9.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.3",
     "express": "^4.17.1",
+    "jest": "^26.4.1",
     "npm-run-all": "^4.1.5",
     "react-test-renderer": "^16.13.1"
   },

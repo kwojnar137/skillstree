@@ -7,7 +7,7 @@ import '../sass/explore.scss'
 import Content from '../components/Content';
 import DropdownMenu from '../components/DropdownMenu'
 
-import { MakeFamilly } from '../utils';
+import { makeFamilly } from '../utils';
 import { ChoiceProvider } from '../context/choice'
 
 
@@ -35,10 +35,14 @@ export default function Achievments() {
 
   useEffect(() => {
     if (categories) {
-      const famillyFromCategories = MakeFamilly({ categories })
+      const famillyFromCategories = makeFamilly({ categories })
+      console.log({ famillyFromCategories })
       setFamilly(famillyFromCategories)
     }
   }, [categories])
+
+
+
 
 
   return (

@@ -1,4 +1,4 @@
-export function MakeFamilly({ categories }) {
+export function makeFamilly({ categories }) {
 
   const familly = categories.filter((member) => {
     return member.parentId === null
@@ -19,7 +19,7 @@ export function MakeFamilly({ categories }) {
 
 
 
-export function trim(toTrim, trigger, size) {
+export function trim(toTrim, trigger, size = 120) {
   if (trigger === false) {
     toTrim = toTrim.slice(0, size)
     toTrim = toTrim + '...'
