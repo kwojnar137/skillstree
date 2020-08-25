@@ -8,7 +8,7 @@ import Content from '../components/Content';
 import DropdownMenu from '../components/DropdownMenu'
 
 import { MakeFamilly } from '../utils';
-import { useChoice, ChoiceProvider } from '../context/choice'
+import { ChoiceProvider } from '../context/choice'
 
 
 

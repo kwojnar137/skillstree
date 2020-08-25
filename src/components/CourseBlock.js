@@ -29,7 +29,7 @@ import RatingContainer from "./RatingContainer";
 import MainInfo from "./MainInfo";
 
 
-export default function Course({ course }) {
+export default function CourseBlock({ course }) {
   const [showDesc, setShowDesc] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
 
@@ -40,6 +40,7 @@ export default function Course({ course }) {
   const trimDesc = trim(course.description, showDesc, 160)
 
   return (
+
     <Grid item xs={12} sm={12} md={6} lg={3}>
       <ContentCard>
         <Grid container justify="center" alignItems="center">
@@ -95,6 +96,5 @@ export default function Course({ course }) {
         </CardFoobar>
       </ContentCard>
     </Grid>
-
   )
 }

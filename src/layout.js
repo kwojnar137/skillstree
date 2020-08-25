@@ -5,9 +5,6 @@ import CancelIcon from './static/media/svg/cancelMenu.svg'
 import StyledLink from './components/StyledLink'
 
 
-
-
-
 const Nav = () => {
   const [isMenuTriggered, setMenuTriggered] = React.useState(false)
 
