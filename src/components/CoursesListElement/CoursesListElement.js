@@ -11,7 +11,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import StarOutlined from '@material-ui/icons/StarOutlined';
 import Grid from '@material-ui/core/Grid';
 
-import { trim } from '../utils';
+import { trim } from '../../utils';
 
 import ContentCard from "./ContentCard";
 import Title from "./Title";
@@ -29,7 +29,7 @@ import RatingContainer from "./RatingContainer";
 import MainInfo from "./MainInfo";
 
 
-export default function CourseBlock({ course }) {
+export default function CourseListElement({ course }) {
   const [showDesc, setShowDesc] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import MenuIcon from './static/media/svg/MenuIcon.svg'
 import CancelIcon from './static/media/svg/cancelMenu.svg'
-import StyledLink from './components/StyledLink'
+import Link from './components/Link'
 
 
 const Nav = () => {
@@ -20,17 +20,17 @@ const Nav = () => {
             {isMenuTriggered ? <img src={CancelIcon} alt="Cancel Icon" /> : <img src={MenuIcon} alt="Menu Icon" />}
             {isMenuTriggered && <div className={`sideBar${isMenuTriggered ? ' active' : ''}`}>
               <div className='sideBarList'>
-                <StyledLink to="/courses">Kursy</StyledLink>
+                <Link to="/courses">Kursy</Link>
               </div>
             </div>}
           </div>
           <div className={`logo${isMenuTriggered ? ' toggled' : ''}`}>
-            <StyledLink to="/"><h1>SkillsTree.pl</h1></StyledLink>
+            <Link to="/"><h1>SkillsTree.pl</h1></Link>
           </div>
         </div>
         <div className="rightSide">
           <div className="navLinks">
-            <StyledLink to="/courses">Kursy</StyledLink>
+            <Link to="/courses">Kursy</Link>
           </div>
         </div>
       </div>

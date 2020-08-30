@@ -7,16 +7,16 @@ import { makeFamilly } from './utils'
 // }
 
 
-const categories = [
-  {
-    parentId: null,
-    id: 1
-  },
-  {
-    parentId: 1,
-    id: 2
-  },
-]
+// const categories = [
+//   {
+//     parentId: null,
+//     id: 1
+//   },
+//   {
+//     parentId: 1,
+//     id: 2
+//   },
+// ]
 
 const FamillyExpected = [{ "childrens": [{ "childrens": [], "id": 2, "parentId": 1 }], "id": 1, "parentId": null }]
 // const FamillyExpected = [
@@ -77,5 +77,22 @@ const FamillyExpected2 = [
 ]
 
 test('make familly object with nested childrens', () => {
-  expect(makeFamilly({ categories })).toStrictEqual(FamillyExpected);
+  expect(makeFamilly(
+    [
+      {
+        parentId: null,
+        id: 1
+      },
+      {
+        parentId: 1,
+        id: 2
+      },
+    ]
+  )).toStrictEqual([
+    {
+      "childrens": [{ "childrens": [], "id": 2, "parentId": 1 }],
+      "id": 1,
+      "parentId": null
+    }]
+  );
 });

@@ -17,12 +17,23 @@ export function makeFamilly({ categories }) {
   return familly
 }
 
+// export function findChildrensId(famillyPart, choice, founded = false) {
+//   console.log({ famillyPart }, { choice })
+
+//   return famillyPart.map((member) => {
+//     if (member.id === choice || founded) {
+//       return [member.id].concat(findChildrensId(member.childrens, true))
+//     } else {
+//       return findChildrensId(member.childrens)
+//     }
+//   }).flat(Infinity)
+// }
 
 
-export function trim(toTrim, trigger, size = 120) {
-  if (trigger === false) {
-    toTrim = toTrim.slice(0, size)
-    toTrim = toTrim + '...'
-  }
+
+export function trim(toTrim, { size = 120 }) {
+  toTrim = toTrim.slice(0, size)
+  toTrim = toTrim + '...'
+
   return toTrim
 }

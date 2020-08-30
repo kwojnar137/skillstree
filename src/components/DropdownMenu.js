@@ -8,16 +8,17 @@ function Childrens({ parentID, famillyArray }) {
   const [whichHover, setWhichHover] = useState(null)
 
 
-  function handleChoice(e) {
-    setChoice({ choice: parseInt(e.target.id) })
+  function handleChoice(id) {
+    console.log('handleChoice id: ', id)
+    setChoice({ choice: id })
   }
 
-  function handleLeave(e) {
+  function handleLeave() {
     setWhichHover(null)
   }
 
-  function findChildren(event) {
-    setWhichHover(event.target.id)
+  function findChildren(id) {
+    setWhichHover(id)
   }
 
   const parent = famillyArray.find((member) => {
@@ -30,9 +31,9 @@ function Childrens({ parentID, famillyArray }) {
         <div
           className="child paper"
           key={id} id={child.id}
-          onMouseEnter={(event) => findChildren(event)}
-          onMouseLeave={(e) => handleLeave(e)}
-          onClick={(e) => { handleChoice(e) }}
+          onMouseEnter={() => findChildren(child.id)}
+          onMouseLeave={() => handleLeave(child.id)}
+          onClick={() => handleChoice(child.id)}
 
         >
           {child.name}
@@ -51,21 +52,22 @@ export default function DropdownMenu({ famillyArray }) {
   // const { choice, updateChoice } = useChoice()
   const setChoice = useChoiceSet()
 
-  function handleChoice(e) {
-    setChoice({ choice: parseInt(e.target.id) })
+  function handleChoice(id) {
+    console.log({ id })
+    setChoice({ choice: id })
   }
 
-  function findChildren(e) {
-    setWhichHover(e.target.id)
+  function findChildren(id) {
+    setWhichHover(id)
   }
 
-  function handleLeave(e) {
+  function handleLeave() {
     setWhichHover(null)
   }
 
   return (
     <div className="menu paper"
-      onMouseLeave={(e) => handleLeave(e)}>
+      onMouseLeave={() => handleLeave()}>
       <div className="menuMainCard">
         {
           famillyArray.map((category, id) => (
@@ -73,8 +75,8 @@ export default function DropdownMenu({ famillyArray }) {
               className={parseInt(whichHover) === parseInt(category.id) ? 'mainCategory paper focused' : 'mainCategory paper'}
               id={category.id}
               key={id}
-              onClick={(e) => { handleChoice(e) }}
-              onMouseEnter={(e) => findChildren(e)}
+              onClick={() => handleChoice(category.id)}
+              onMouseEnter={() => findChildren(category.id)}
             >
               {category.name}
             </div>

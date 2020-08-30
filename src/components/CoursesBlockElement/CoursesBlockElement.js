@@ -11,7 +11,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import StarOutlined from '@material-ui/icons/StarOutlined';
 import Grid from '@material-ui/core/Grid';
 
-import { trim } from '../utils';
+import { trim } from '../../utils';
 
 import ContentCard from "./ContentCard";
 import Title from "./Title";
@@ -29,7 +29,7 @@ import RatingContainer from "./RatingContainer";
 import MainInfo from "./MainInfo";
 
 
-export default function CourseBlock({ course }) {
+export default function CourseBlockElement({ course }) {
   const [showDesc, setShowDesc] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
 
@@ -37,7 +37,7 @@ export default function CourseBlock({ course }) {
     setShowDesc(!showDesc)
   }
 
-  const trimDesc = trim(course.description, showDesc, 160)
+
 
   return (
 
@@ -73,7 +73,7 @@ export default function CourseBlock({ course }) {
         <ImageContainer>
           <Image src={course.imgUrl} />
         </ImageContainer>
-        <Description> {trimDesc} </Description >
+        <Description> {(!showDesc && trim(course.description, { size: 160 })) || course.description} </Description >
         <CardFoobar>
           <Grid container>
             <Grid item xs={2}>
