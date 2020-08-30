@@ -8,9 +8,8 @@ function Childrens({ parentID, famillyArray }) {
   const [whichHover, setWhichHover] = useState(null)
 
 
-  function handleChoice(id) {
-    console.log('handleChoice id: ', id)
-    setChoice({ choice: id })
+  function handleChoice(e) {
+    setChoice({ choice: parseInt(e.target.id) })
   }
 
   function handleLeave() {
@@ -33,7 +32,7 @@ function Childrens({ parentID, famillyArray }) {
           key={id} id={child.id}
           onMouseEnter={() => findChildren(child.id)}
           onMouseLeave={() => handleLeave(child.id)}
-          onClick={() => handleChoice(child.id)}
+          onClick={(e) => handleChoice(e)}
 
         >
           {child.name}
@@ -52,9 +51,8 @@ export default function DropdownMenu({ famillyArray }) {
   // const { choice, updateChoice } = useChoice()
   const setChoice = useChoiceSet()
 
-  function handleChoice(id) {
-    console.log({ id })
-    setChoice({ choice: id })
+  function handleChoice(e) {
+    setChoice({ choice: parseInt(e.target.id) })
   }
 
   function findChildren(id) {
@@ -75,7 +73,7 @@ export default function DropdownMenu({ famillyArray }) {
               className={parseInt(whichHover) === parseInt(category.id) ? 'mainCategory paper focused' : 'mainCategory paper'}
               id={category.id}
               key={id}
-              onClick={() => handleChoice(category.id)}
+              onClick={(e) => handleChoice(e)}
               onMouseEnter={() => findChildren(category.id)}
             >
               {category.name}
