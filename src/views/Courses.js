@@ -4,11 +4,11 @@ import axios from 'axios';
 import Layout from '../layout'
 import '../sass/explore.scss'
 
-import Content from '../components/Content';
+import Content from './CoursesContent';
 import DropdownMenu from '../components/DropdownMenu'
 
 import { makeFamilly } from '../utils';
-import { ChoiceProvider } from '../context/choice'
+import { ChoiceProvider } from '../context/choiceContext'
 
 
 

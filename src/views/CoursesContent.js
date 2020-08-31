@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
-import { useChoiceState } from '../context/choice'
-import { CoursesBlockElement } from './CoursesBlockElement';
-import { CoursesListElement } from './CoursesListElement';
-import ViewType from './ViewType'
-import ViewIcon from './ViewIcon'
-// import { findChildrensId } from '../utils'
+import { useChoiceState } from '../context/choiceContext'
+import { CoursesBlockElement } from '../components/CoursesBlockElement';
+import { CoursesListElement } from '../components/CoursesListElement';
+import ViewType from '../components/ViewType'
+import ViewIcon from '../components/ViewIcon'
+import { findChildrensId } from '../utils'
 // import { ReactComponent as ViewListIcon } from '@material-ui/icons/ViewList';
 // import { ReactComponent as ViewModuleIcon } from '@material-ui/icons/ViewModule';
 
@@ -18,10 +18,7 @@ export default function Content({ familly }) {
   const { choice } = useChoiceState()
   const [courses, setCourses] = useState(null)
   const [filtered, setFiltered] = useState(null)
-  const [viewTypeBlock, setViewTypeBlock] = useState({
-    state: false,
-    activeId: []
-  })
+  const [viewTypeBlock, setViewTypeBlock] = useState("list")
 
 
   useEffect(() => {
@@ -36,25 +33,12 @@ export default function Content({ familly }) {
     fetchData();
   }, [])
 
-  function findChildrensId(famillyPart, choice, founded = false) {
-    return famillyPart.map((member) => {
-      if (member.id === choice || founded) {
-        return [member.id].concat(findChildrensId(member.childrens, choice, true))
-      } else {
-        return findChildrensId(member.childrens, choice)
-      }
-    }).flat(Infinity)
-  }
-
-
-
-
+  console.log({ choice })
 
 
 
   useEffect(() => {
     if (courses) {
-      console.log({ choice })
       let requestedCategoriesIDs = findChildrensId(familly, choice)
       console.log({ requestedCategoriesIDs })
       const coursesFiltered = courses.map((course) => {
@@ -63,7 +47,8 @@ export default function Content({ familly }) {
         })
 
         const stat = categoryIds.some((element) => {
-          if (requestedCategoriesIDs.includes(element)) return true
+          if (requestedCategoriesIDs.includes(element))
+            return true
         })
 
         if (stat) return course
@@ -74,32 +59,32 @@ export default function Content({ familly }) {
   }, [choice])
 
   function handleViewType(viewType) {
-    setViewTypeBlock(prevState => ({ state: !prevState.state, activeId: viewType }))
+    setViewTypeBlock(viewType)
   }
 
   return (
     <div className="categoriesContent">
       <ViewType >
 
-        <ViewIcon activeId={viewTypeBlock.activeId === "list"} >
+        <ViewIcon activeId={viewTypeBlock === "list"} >
           <ViewListIcon style={{ fontSize: 60 }} id="list" onClick={() => handleViewType("list")} />
         </ViewIcon>
 
-        <ViewIcon activeId={viewTypeBlock.activeId === 'block'} >
+        <ViewIcon activeId={viewTypeBlock === "block"} >
           <ViewModuleIcon style={{ fontSize: 60 }} id="block" onClick={() => handleViewType("block")} />
         </ViewIcon>
 
       </ViewType>
-      {viewTypeBlock.state &&
+      {
+        viewTypeBlock === "list" && filtered &&
+        filtered.map((course, id) => (course && <CoursesListElement course={course} key={id} />))
+      }
+      {viewTypeBlock === "block" &&
         <Grid container direction="row">
           {
             filtered && filtered.map((course, id) => (course && <CoursesBlockElement course={course} key={id} />))
           }
         </Grid>
-      }
-      {
-        !viewTypeBlock.state && filtered &&
-        filtered.map((course, id) => (course && <CoursesListElement course={course} key={id} />))
       }
     </div>
   )

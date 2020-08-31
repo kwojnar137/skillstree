@@ -17,17 +17,17 @@ export function makeFamilly({ categories }) {
   return familly
 }
 
-// export function findChildrensId(famillyPart, choice, founded = false) {
-//   console.log({ famillyPart }, { choice })
 
-//   return famillyPart.map((member) => {
-//     if (member.id === choice || founded) {
-//       return [member.id].concat(findChildrensId(member.childrens, true))
-//     } else {
-//       return findChildrensId(member.childrens)
-//     }
-//   }).flat(Infinity)
-// }
+export function findChildrensId(famillyPart, choice, founded = false) {
+  return famillyPart.map((member) => {
+    if (member.id === choice || founded) {
+      return [member.id].concat(findChildrensId(member.childrens, choice, true))
+    } else {
+      return findChildrensId(member.childrens, choice)
+    }
+  }).flat(Infinity)
+}
+
 
 
 

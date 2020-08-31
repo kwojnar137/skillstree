@@ -1,9 +1,5 @@
 import React, { useState } from 'react'
 
-
-import styled from 'styled-components';
-
-
 import AddIcon from '@material-ui/icons/Add';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -13,20 +9,22 @@ import Grid from '@material-ui/core/Grid';
 
 import { trim } from '../../utils';
 
-import ContentCard from "./ContentCard";
-import Title from "./Title";
-import Authors from "./Authors";
-import ImageContainer from "./ImageContainer";
-import Image from "./Image";
-import Add from "./Add";
-import Description from "./Description";
-import ExpandIcon from "./ExpandIcon";
-import MoreInfo from "./MoreInfo";
-import Share from "./Share";
-import CardFoobar from "./CardFoobar";
-import Rating from "./Rating";
-import RatingContainer from "./RatingContainer";
-import MainInfo from "./MainInfo";
+import ContentCard from "../ContentCard";
+import Title from "../Title";
+import Authors from "../Authors";
+import ImageContainer from "../ImageContainer";
+import Image from "../Image";
+import Add from "../Add";
+import Description from "../Description";
+import ExpandIcon from "../ExpandIcon";
+import MoreInfo from "../MoreInfo";
+import Share from "../Share";
+import CardFoobar from "../CardFoobar";
+import Rating from "../Rating";
+import RatingContainer from "../RatingContainer";
+import MainInfo from "../MainInfo";
+import Price from '../Price'
+import OldPrice from '../OldPrice'
 
 
 export default function CourseBlockElement({ course }) {
@@ -37,11 +35,8 @@ export default function CourseBlockElement({ course }) {
     setShowDesc(!showDesc)
   }
 
-
-
   return (
-
-    <Grid item xs={12} sm={12} md={6} lg={3}>
+    <Grid item xs={12} sm={12} md={6} lg={4}>
       <ContentCard>
         <Grid container justify="center" alignItems="center">
           <Grid item xs={1}   >
@@ -54,8 +49,8 @@ export default function CourseBlockElement({ course }) {
               <Title>{course.title}</Title>
               <Authors>
                 {course.authors.map((author, id) => {
-                  if (id > 0) { return ', ' + author.name }
-                  return author.name
+                  if (id > 0) { return ', ' + author.author }
+                  return author.author
                 })}
               </Authors>
             </MainInfo>
@@ -66,8 +61,21 @@ export default function CourseBlockElement({ course }) {
                 <StarOutlined />
                 {course.rating}
               </Rating>
-                ({course.numberOfRatings})
-              </RatingContainer>
+            </RatingContainer>
+            {
+              course.oldPrice &&
+              <>
+                <OldPrice>
+                  {course.oldPrice}{course.currency}
+                </OldPrice>
+                <Price isOldPrice={true}>
+                  {course.price}{course.currency}
+                </Price>
+              </> ||
+              <Price isOldPrice={false}>
+                {course.price}{course.currency}
+              </Price>
+            }
           </Grid>
         </Grid>
         <ImageContainer>

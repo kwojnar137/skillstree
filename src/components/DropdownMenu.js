@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useChoiceState, useChoiceSet } from '../context/choice'
+import { useChoiceState, useChoiceSet } from '../context/choiceContext'
 
 function Childrens({ parentID, famillyArray }) {
   const { choice } = useChoiceState()

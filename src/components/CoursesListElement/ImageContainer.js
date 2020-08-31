@@ -8,6 +8,7 @@ display: flex;
 justify-content: center;
 align-items: center;
   overflow: hidden;
+  margin: 10px;
 `
 
 export default ImageContainer

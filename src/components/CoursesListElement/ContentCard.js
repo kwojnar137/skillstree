@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 
 const ContentCard = styled.div`
+      display: flex;
+      /* align-items: center; */
       margin: 10px;
       position: relative;
 

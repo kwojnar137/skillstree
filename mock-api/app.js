@@ -174,7 +174,7 @@ app.get('/api/categories', (req, res) => res.json([
 
 app.get('/api/courses', (req, res) => res.json([
   {
-    "title": "klasyczny kurs z matematyki",
+    "title": "Klasyczny kurs z matematyki",
     "category": [
       {
         "name": "Matematyka",
@@ -191,8 +191,9 @@ app.get('/api/courses', (req, res) => res.json([
     ],
     "rating": 9.21,
     "price": 299,
+    "oldPrice": 399,
     "currency": "zł",
-    "imgUrl": "https://cdn-lubimyczytac.pl/upload/books/61000/61086/352x500.jpg",
+    "imgUrl": "https://cdn.galleries.smcloud.net/t/galleries/gf-Q7Ug-newU-9QE1_wzory-matematyczne-dla-osmoklasistow-i-nie-tylko-1920x1080-nocrop.jpg",
   },
   {
     "title": "nowoczesny kurs z matematyki na pełnej petardzie",
@@ -213,7 +214,7 @@ app.get('/api/courses', (req, res) => res.json([
     "rating": 8.21,
     "price": 129,
     "currency": "zł",
-    "imgUrl": "https://i.ytimgUrl.com/vi/X5p0AafYztA/maxresdefault.jpg",
+    "imgUrl": "https://st-lento.pl/adpics/large/06_2019/18/b9512a-korepetycje-matematyka-fizyka-i-chemia-tychy-zdjecia.jpg",
   },
   {
     "title": "Fizyka dla nieogarniętych",
@@ -255,7 +256,7 @@ app.get('/api/courses', (req, res) => res.json([
     "rating": 8.1,
     "price": 54,
     "currency": "zł",
-    "imgUrl": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
+    "imgUrl": "https://cms-v1-files.superszkolna.pl/sites/525/wiadomosci/368356/fotos/orign/2724_napisy_sale_fizyka.jpg",
   },
   {
     "title": "Opowieść o planetach",
@@ -276,7 +277,7 @@ app.get('/api/courses', (req, res) => res.json([
     "rating": 8.1,
     "price": 54,
     "currency": "zł",
-    "imgUrl": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
+    "imgUrl": "https://cms-v1-files.superszkolna.pl/sites/525/wiadomosci/368356/fotos/orign/2724_napisy_sale_fizyka.jpg",
   },
   {
     "title": "Teoria strun",
@@ -297,7 +298,7 @@ app.get('/api/courses', (req, res) => res.json([
     "rating": 8.1,
     "price": 54,
     "currency": "zł",
-    "imgUrl": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
+    "imgUrl": "https://cms-v1-files.superszkolna.pl/sites/525/wiadomosci/368356/fotos/orign/2724_napisy_sale_fizyka.jpg",
   },
   {
     "title": "Matematyka w fizyce, chemii i biologi",
@@ -328,7 +329,7 @@ app.get('/api/courses', (req, res) => res.json([
     "rating": 8.1,
     "price": 54,
     "currency": "zł",
-    "imgUrl": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
+    "imgUrl": "https://cms-v1-files.superszkolna.pl/sites/525/wiadomosci/368356/fotos/orign/2724_napisy_sale_fizyka.jpg",
   },
   {
     "title": "Fizyka dla medyków",
@@ -354,7 +355,7 @@ app.get('/api/courses', (req, res) => res.json([
     "rating": 8.1,
     "price": 54,
     "currency": "zł",
-    "imgUrl": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
+    "imgUrl": "https://cms-v1-files.superszkolna.pl/sites/525/wiadomosci/368356/fotos/orign/2724_napisy_sale_fizyka.jpg",
   },
   {
     "title": "Język polski, kurs gramatyki",
@@ -375,7 +376,7 @@ app.get('/api/courses', (req, res) => res.json([
     "rating": 9.21,
     "price": 299,
     "currency": "zł",
-    "imgUrl": "https://cdn-lubimyczytac.pl/upload/books/61000/61086/352x500.jpg",
+    "imgUrl": "https://cdn.galleries.smcloud.net/t/galleries/gf-Q7Ug-newU-9QE1_wzory-matematyczne-dla-osmoklasistow-i-nie-tylko-1920x1080-nocrop.jpg",
   },
   {
     "title": "Język polski, kurs litertury",
@@ -447,7 +448,7 @@ app.get('/api/courses', (req, res) => res.json([
     "rating": 8.1,
     "price": 54,
     "currency": "zł",
-    "imgUrl": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
+    "imgUrl": "https://cms-v1-files.superszkolna.pl/sites/525/wiadomosci/368356/fotos/orign/2724_napisy_sale_fizyka.jpg",
   },
   {
     "title": "Język angielski dla początkujących",
@@ -468,7 +469,7 @@ app.get('/api/courses', (req, res) => res.json([
     "rating": 8.1,
     "price": 54,
     "currency": "zł",
-    "imgUrl": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
+    "imgUrl": "https://cms-v1-files.superszkolna.pl/sites/525/wiadomosci/368356/fotos/orign/2724_napisy_sale_fizyka.jpg",
   },
   {
     "title": "Język angielski metodami Memo",
@@ -489,7 +490,7 @@ app.get('/api/courses', (req, res) => res.json([
     "rating": 8.1,
     "price": 54,
     "currency": "zł",
-    "imgUrl": "https://www.uw.edu.pl/wp-content/uploads/2014/02/ochota-fizyka-879x300.jpg",
+    "imgUrl": "https://cms-v1-files.superszkolna.pl/sites/525/wiadomosci/368356/fotos/orign/2724_napisy_sale_fizyka.jpg",
   },
   {
     "title": "Teoria muzyki",

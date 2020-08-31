@@ -2,81 +2,81 @@
 @import "variables";
 
 //CSS dla podstrony Subskrypcje - stara wersja menu 
-.container{
-  display: flex;
+// .container{
+//   display: flex;
 
-  .categoriesContent{
-    width: 100%;
-    margin: 0px 25px 25px;
-    display: flex;
-    flex-direction: column;
+//   .categoriesContent{
+//     width: 100%;
+//     margin: 0px 25px 25px;
+//     display: flex;
+//     flex-direction: column;
 
-      .categoriesCard{
-        width:100%;
-        height: 100px;
-        margin-bottom: 25px;
-        background-color: white;
-      }
-    }
+//       .categoriesCard{
+//         width:100%;
+//         height: 100px;
+//         margin-bottom: 25px;
+//         background-color: white;
+//       }
+//     }
 
-  .sideMenu{
-    display: flex;
-    position: relative;
-    z-index: 10;
+//   .sideMenu{
+//     display: flex;
+//     position: relative;
+//     z-index: 10;
 
-    .tabs{
-      display: flex;
-      flex-direction: column;
-      .mainCategoryLabel{
-        width: max-content;
-        padding: 15px 20px;
-        cursor: pointer;
-        font-size: 1.5rem;
-      }
+//     .tabs{
+//       display: flex;
+//       flex-direction: column;
+//       .mainCategoryLabel{
+//         width: max-content;
+//         padding: 15px 20px;
+//         cursor: pointer;
+//         font-size: 1.5rem;
+//       }
 
-      .focused{
-        background-color: $hoverCategoriesCardBgColor;;
-      }
-      .mainCategoryLabel:hover{
-        // background-color: $hoverCategoriesCardBgColor;
-      }
-    }
-    .subCategoryMenuContainer{
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      position: absolute;
-      z-index: 10;
-      left: 100%;
-      height: 100%;
+//       .focused{
+//         background-color: $hoverCategoriesCardBgColor;;
+//       }
+//       .mainCategoryLabel:hover{
+//         // background-color: $hoverCategoriesCardBgColor;
+//       }
+//     }
+//     .subCategoryMenuContainer{
+//       display: flex;
+//       flex-direction: column;
+//       flex-wrap: wrap;
+//       position: absolute;
+//       z-index: 10;
+//       left: 100%;
+//       height: 100%;
 
       
-      .subcategoryTab{
-        font-size: 1.2rem;
-        display: flex;
-        flex-direction: column;
-        align-items: left;
-        padding: 10px 20px;
-        width: max-content;
-        .subCategory-1{
-          cursor: pointer;
-          padding-bottom: 4px;
-          width: max-content;
-          font-weight: bold;
-        }
-        .subCategory-2{
-          cursor: pointer;
-          padding: 4px 0px;   
-        }
-        .subCategory-1:hover{
-          opacity: 60%;
-        }
-        .subCategory-2:hover{
-          opacity: 60%;        }
-      }
-    }
-  }
-}
+//       .subcategoryTab{
+//         font-size: 1.2rem;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: left;
+//         padding: 10px 20px;
+//         width: max-content;
+//         .subCategory-1{
+//           cursor: pointer;
+//           padding-bottom: 4px;
+//           width: max-content;
+//           font-weight: bold;
+//         }
+//         .subCategory-2{
+//           cursor: pointer;
+//           padding: 4px 0px;   
+//         }
+//         .subCategory-1:hover{
+//           opacity: 60%;
+//         }
+//         .subCategory-2:hover{
+//           opacity: 60%;        }
+//       }
+//     }
+//   }
+// }
 
 
 @media screen and (max-width:4000px){
@@ -108,7 +108,20 @@
 
 
 //CSS dla podstrony Osiągnięcia - nowa wersja menu, dla API jednowarstwowego
+.contentContainer{
+  background-color: $body-bg;
+  margin: 25px;
+}
+
 .container{
+  .categoriesContent{
+    width: 100%;
+    margin: 0px 25px 25px;
+    background-color: rgb(231, 231, 231);
+    padding: 10px;
+    border-radius: 4px;
+    }
+  
   .menuContainer{
     position: relative;
     z-index: 10;
@@ -154,4 +167,15 @@
 
   }
 }
+}
+
+@media screen and (min-width:950px){
+  .contentContainer{
+    display: flex;
+    justify-content: center;
+    .container{
+      width: 70%;
+    }
+    
+  }
 }
