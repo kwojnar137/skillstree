@@ -24,7 +24,7 @@ import ExpandIcon from "../ExpandIcon";
 import Share from "../Share";
 import CardFoobar from "../CardFoobar";
 import Rating from "../Rating";
-import Price from '../Price'
+import Price from './Price'
 import OldPrice from '../OldPrice'
 
 
@@ -83,7 +83,9 @@ export default function CourseListElement({ course }) {
             <StarOutlined />
             {course.rating}
           </Rating>
-          {
+          <Price price={course.price} oldPrice={course.oldPrice} currency={course.currency} />
+
+          {/* {
             course.oldPrice &&
             <>
               <OldPrice>
@@ -96,7 +98,7 @@ export default function CourseListElement({ course }) {
             <Price isOldPrice={false}>
               {course.price}{course.currency}
             </Price>
-          }
+          } */}
 
 
         </Grid>

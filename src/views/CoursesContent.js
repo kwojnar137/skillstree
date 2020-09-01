@@ -6,42 +6,67 @@ import { CoursesBlockElement } from '../components/CoursesBlockElement';
 import { CoursesListElement } from '../components/CoursesListElement';
 import ViewType from '../components/ViewType'
 import ViewIcon from '../components/ViewIcon'
+import AlertBox from '../components/AlertBox'
 import { findChildrensId } from '../utils'
+
 // import { ReactComponent as ViewListIcon } from '@material-ui/icons/ViewList';
 // import { ReactComponent as ViewModuleIcon } from '@material-ui/icons/ViewModule';
 
 import ViewListIcon from '@material-ui/icons/ViewList';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 
 export default function Content({ familly }) {
   const { choice } = useChoiceState()
-  const [courses, setCourses] = useState(null)
+  const [courses, setCourses] = useState({
+    collection: null,
+    loading: true,
+    showAlert: false,
+  })
   const [filtered, setFiltered] = useState(null)
   const [viewTypeBlock, setViewTypeBlock] = useState("list")
+  const [loadingCourses, setLoadingCourses] = useState(false)
 
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await axios.get('/courses')
-        setCourses(res.data)
+        // console.log('courses.loading: ', courses.loading)
+        const res = await axios.get('/courses2')
+
+        setCourses({ collection: res.data, loading: false, showAlert: false })
       } catch (err) {
-        setCourses(null)
+        setCourses({ collection: null, loading: false, showAlert: true })
+        console.log(err)
       }
     }
-    fetchData();
+    setTimeout(() => {
+      fetchData();
+    }, 2000)
+
+
   }, [])
 
   console.log({ choice })
+  console.log({ courses })
+
+  // console.log('courses.loading outside useEffect: ', courses.loading)
+  // console.log({ courses })
+
+  const { collection, loading, showAlert } = courses
+
+
+  // console.log({ collection })
 
 
 
   useEffect(() => {
-    if (courses) {
+    if (collection) {
+      console.log("setting filtered")
       let requestedCategoriesIDs = findChildrensId(familly, choice)
       console.log({ requestedCategoriesIDs })
-      const coursesFiltered = courses.map((course) => {
+      const coursesFiltered = collection.map((course) => {
         const categoryIds = course.category.map((item) => {
           return item.id
         })
@@ -64,6 +89,7 @@ export default function Content({ familly }) {
 
   return (
     <div className="categoriesContent">
+
       <ViewType >
 
         <ViewIcon activeId={viewTypeBlock === "list"} >
@@ -86,6 +112,8 @@ export default function Content({ familly }) {
           }
         </Grid>
       }
+      {loading && <LoadingSpinner />}
+      {showAlert && <AlertBox alertMessage={"There is no courses"} />}
     </div>
   )
 }
