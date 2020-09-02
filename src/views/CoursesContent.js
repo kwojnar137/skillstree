@@ -26,19 +26,14 @@ export default function Content({ familly }) {
   })
   const [filtered, setFiltered] = useState(null)
   const [viewTypeBlock, setViewTypeBlock] = useState("list")
-  const [loadingCourses, setLoadingCourses] = useState(false)
-
 
   useEffect(() => {
     async function fetchData() {
       try {
-        // console.log('courses.loading: ', courses.loading)
-        const res = await axios.get('/courses2')
-
+        const res = await axios.get('/courses')
         setCourses({ collection: res.data, loading: false, showAlert: false })
       } catch (err) {
         setCourses({ collection: null, loading: false, showAlert: true })
-        console.log(err)
       }
     }
     setTimeout(() => {
@@ -48,24 +43,11 @@ export default function Content({ familly }) {
 
   }, [])
 
-  console.log({ choice })
-  console.log({ courses })
-
-  // console.log('courses.loading outside useEffect: ', courses.loading)
-  // console.log({ courses })
-
   const { collection, loading, showAlert } = courses
-
-
-  // console.log({ collection })
-
-
 
   useEffect(() => {
     if (collection) {
-      console.log("setting filtered")
       let requestedCategoriesIDs = findChildrensId(familly, choice)
-      console.log({ requestedCategoriesIDs })
       const coursesFiltered = collection.map((course) => {
         const categoryIds = course.category.map((item) => {
           return item.id
