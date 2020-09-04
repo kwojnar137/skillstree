@@ -35,8 +35,7 @@ export default function Achievments() {
 
   useEffect(() => {
     if (categories) {
-      const famillyFromCategories = makeFamilly({ categories })
-      console.log({ famillyFromCategories })
+      const famillyFromCategories = makeFamilly(categories)
       setFamilly(famillyFromCategories)
     }
   }, [categories])

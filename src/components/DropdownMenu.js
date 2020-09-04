@@ -8,9 +8,10 @@ function Childrens({ parentID, famillyArray }) {
   const [whichHover, setWhichHover] = useState(null)
 
 
-  function handleChoice(e) {
-    setChoice({ choice: parseInt(e.target.id) })
+  function handleChoice(id) {
+    setChoice({ choice: parseInt(id) })
   }
+
 
   function handleLeave() {
     setWhichHover(null)
@@ -32,7 +33,7 @@ function Childrens({ parentID, famillyArray }) {
           key={id} id={child.id}
           onMouseEnter={() => findChildren(child.id)}
           onMouseLeave={() => handleLeave(child.id)}
-          onClick={(e) => handleChoice(e)}
+          onClick={(e) => handleChoice(e.target.id)}
 
         >
           {child.name}
@@ -48,7 +49,6 @@ function Childrens({ parentID, famillyArray }) {
 
 export default function DropdownMenu({ famillyArray }) {
   const [whichHover, setWhichHover] = useState(null)
-  // const { choice, updateChoice } = useChoice()
   const setChoice = useChoiceSet()
 
   function handleChoice(e) {

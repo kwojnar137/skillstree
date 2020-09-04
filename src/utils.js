@@ -1,4 +1,4 @@
-export function makeFamilly({ categories }) {
+export function makeFamilly(categories) {
 
   const familly = categories.filter((member) => {
     return member.parentId === null
