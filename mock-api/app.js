@@ -185,7 +185,7 @@ app.get('/api/courses', (req, res) => res.json([
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
     "authors": [
       {
-        "author": "Stefan Banach",
+        "name": "Stefan Banach",
         "id": 1,
       },
     ],
@@ -207,7 +207,7 @@ app.get('/api/courses', (req, res) => res.json([
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
     "authors": [
       {
-        "author": "Rajash",
+        "name": "Rajash",
         "id": 2,
       },
     ],
@@ -228,7 +228,7 @@ app.get('/api/courses', (req, res) => res.json([
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
     "authors": [
       {
-        "author": "Mad Max",
+        "name": "Mad Max",
         "id": 3,
       },
     ],
@@ -249,7 +249,7 @@ app.get('/api/courses', (req, res) => res.json([
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
     "authors": [
       {
-        "author": "prof. Garneczek",
+        "name": "prof. Garneczek",
         "id": 4,
       },
     ],
@@ -270,7 +270,7 @@ app.get('/api/courses', (req, res) => res.json([
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
     "authors": [
       {
-        "author": "prof. Miećko",
+        "name": "prof. Miećko",
         "id": 5,
       },
     ],
@@ -291,7 +291,7 @@ app.get('/api/courses', (req, res) => res.json([
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
     "authors": [
       {
-        "author": "prof. Garneczek",
+        "name": "prof. Garneczek",
         "id": 4,
       },
     ],
@@ -322,7 +322,7 @@ app.get('/api/courses', (req, res) => res.json([
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
     "authors": [
       {
-        "author": "prof. Miećko",
+        "name": "prof. Miećko",
         "id": 5,
       },
     ],
@@ -348,7 +348,7 @@ app.get('/api/courses', (req, res) => res.json([
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
     "authors": [
       {
-        "author": "lek. Suchocki",
+        "name": "lek. Suchocki",
         "id": 6,
       },
     ],
@@ -369,7 +369,7 @@ app.get('/api/courses', (req, res) => res.json([
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
     "authors": [
       {
-        "author": "prof. Miećko",
+        "name": "prof. Miećko",
         "id": 5,
       },
     ],
@@ -390,11 +390,11 @@ app.get('/api/courses', (req, res) => res.json([
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
     "authors": [
       {
-        "author": "lek. Suchocki",
+        "name": "lek. Suchocki",
         "id": 6,
       },
       {
-        "author": "Mieczysław Gałczyk",
+        "name": "Mieczysław Gałczyk",
         "id": 7,
       },
     ],
@@ -416,7 +416,7 @@ app.get('/api/courses', (req, res) => res.json([
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
     "authors": [
       {
-        "author": "Mieczysław Gałczyk",
+        "name": "Mieczysław Gałczyk",
         "id": 7,
       },
     ],
@@ -437,11 +437,11 @@ app.get('/api/courses', (req, res) => res.json([
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
     "authors": [
       {
-        "author": "Mieczysław Gałczyk",
+        "name": "Mieczysław Gałczyk",
         "id": 7,
       },
       {
-        "author": "Mikołaj Filipow",
+        "name": "Mikołaj Filipow",
         "id": 8,
       },
     ],
@@ -462,7 +462,7 @@ app.get('/api/courses', (req, res) => res.json([
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
     "authors": [
       {
-        "author": "Mikołaj Filipow",
+        "name": "Mikołaj Filipow",
         "id": 8,
       },
     ],
@@ -483,7 +483,7 @@ app.get('/api/courses', (req, res) => res.json([
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
     "authors": [
       {
-        "author": "prof. Miećko",
+        "name": "prof. Miećko",
         "id": 5,
       },
     ],
@@ -504,7 +504,7 @@ app.get('/api/courses', (req, res) => res.json([
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sodales diam elit, eu dictum velit dictum et. Nam maximus accumsan leo, ac elementum purus porta ac. Morbi suscipit in quam malesuada rutrum. Nullam quis sem turpis. Etiam fringilla varius lorem id sagittis. Nulla volutpat laoreet metus. Nulla facilisi. Cras in lacus pulvinar, varius metus sit amet, auctor libero. Nunc in fringilla lorem, et hendrerit dui. Mauris blandit eu mi non eleifend. Sed eu mauris eu mauris dignissim luctus. Ut mi massa, volutpat id porta congue, congue at justo.",
     "authors": [
       {
-        "author": "Artur Rojek",
+        "name": "Artur Rojek",
         "id": 9,
       },
     ],
@@ -519,39 +519,39 @@ app.get('/api/courses', (req, res) => res.json([
 
 app.get('/api/authors', (req, res) => res.json([
   {
-    "author": "Stefan Banach",
+    "name": "Stefan Banach",
     "id": 1,
   },
   {
-    "author": "Rajash",
+    "name": "Rajash",
     "id": 2,
   },
   {
-    "author": "Mad Max",
+    "name": "Mad Max",
     "id": 3,
   },
   {
-    "author": "prof. Garneczek",
+    "name": "prof. Garneczek",
     "id": 4,
   },
   {
-    "author": "prof. Miećko",
+    "name": "prof. Miećko",
     "id": 5,
   },
   {
-    "author": "lek. Suchocki",
+    "name": "lek. Suchocki",
     "id": 6,
   },
   {
-    "author": "Mieczysław Gałczyk",
+    "name": "Mieczysław Gałczyk",
     "id": 7,
   },
   {
-    "author": "Mikołaj Filipow",
+    "name": "Mikołaj Filipow",
     "id": 8,
   },
   {
-    "author": "Artur Rojek",
+    "name": "Artur Rojek",
     "id": 9,
   },
 

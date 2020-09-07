@@ -1,4 +1,1 @@
-import CoursesListElement from './CoursesListElement';
-
-
-export { CoursesListElement };
+export { default as CoursesListElement } from './CoursesListElement';

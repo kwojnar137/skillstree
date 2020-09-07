@@ -15,7 +15,7 @@ import { trim } from '../../utils';
 
 import ContentCard from "./ContentCard";
 import Title from "./Title";
-import Authors from "./Authors";
+import Authors from "../Authors";
 import ImageContainer from "./ImageContainer";
 import Image from "./Image";
 import Add from "../Add";
@@ -24,23 +24,19 @@ import ExpandIcon from "../ExpandIcon";
 import Share from "../Share";
 import CardFoobar from "../CardFoobar";
 import Rating from "../Rating";
-import Price from './Price'
-import OldPrice from '../OldPrice'
+import Price from '../Price'
 
 
 
 export default function CourseListElement({ course }) {
   const [showDesc, setShowDesc] = useState(false);
-  const [showInfo, setShowInfo] = useState(false);
 
   function handleDesc() {
     setShowDesc(!showDesc)
   }
 
-  const trimDesc = trim(course.description, showDesc, 160)
 
   return (
-
     <ContentCard>
       <ImageContainer width={'300px'} >
         <Image src={course.imgUrl} />
@@ -48,14 +44,8 @@ export default function CourseListElement({ course }) {
       <Grid container justify="center" alignItems="center">
         <Grid item xs={10}>
           <Title>  <MoreVertIcon />{course.title}</Title>
-          <Authors>
-            {course.authors.map((author, id) => {
-              if (id > 0) { return ', ' + author.author }
-              return author.author
-            })}
-          </Authors>
-          <Description> {(!showDesc && trim(course.description, { size: 160 })) || course.description} </Description >
-
+          <Authors authorsData={course.authors} isList={true} />
+          <Description> {showDesc ? course.description : trim(course.description, { size: 160 })}</Description >
           <CardFoobar>
             <Grid container>
               <Grid item xs={2}>
@@ -76,7 +66,6 @@ export default function CourseListElement({ course }) {
               </Grid>
             </Grid>
           </CardFoobar>
-
         </Grid>
         <Grid item xs={2}>
           <Rating>
@@ -84,27 +73,8 @@ export default function CourseListElement({ course }) {
             {course.rating}
           </Rating>
           <Price price={course.price} oldPrice={course.oldPrice} currency={course.currency} />
-
-          {/* {
-            course.oldPrice &&
-            <>
-              <OldPrice>
-                {course.oldPrice}{course.currency}
-              </OldPrice>
-              <Price isOldPrice={true}>
-                {course.price}{course.currency}
-              </Price>
-            </> ||
-            <Price isOldPrice={false}>
-              {course.price}{course.currency}
-            </Price>
-          } */}
-
-
         </Grid>
       </Grid>
-
-
     </ContentCard>
 
   )

@@ -24,12 +24,11 @@ import Rating from "../Rating";
 import RatingContainer from "../RatingContainer";
 import MainInfo from "../MainInfo";
 import Price from '../Price'
-import OldPrice from '../OldPrice'
+
 
 
 export default function CourseBlockElement({ course }) {
   const [showDesc, setShowDesc] = useState(false);
-  const [showInfo, setShowInfo] = useState(false);
 
   function handleDesc() {
     setShowDesc(!showDesc)
@@ -39,7 +38,7 @@ export default function CourseBlockElement({ course }) {
     <Grid item xs={12} sm={12} md={6} lg={4}>
       <ContentCard>
         <Grid container justify="center" alignItems="center">
-          <Grid item xs={1}   >
+          <Grid item xs={1}>
             <MoreInfo>
               <MoreVertIcon />
             </MoreInfo>
@@ -47,12 +46,7 @@ export default function CourseBlockElement({ course }) {
           <Grid item xs={8}>
             <MainInfo>
               <Title>{course.title}</Title>
-              <Authors>
-                {course.authors.map((author, id) => {
-                  if (id > 0) { return ', ' + author.author }
-                  return author.author
-                })}
-              </Authors>
+              <Authors authorsData={course.authors} isList={false} />
             </MainInfo>
           </Grid>
           <Grid item xs={3}>
@@ -62,26 +56,13 @@ export default function CourseBlockElement({ course }) {
                 {course.rating}
               </Rating>
             </RatingContainer>
-            {
-              course.oldPrice &&
-              <>
-                <OldPrice>
-                  {course.oldPrice}{course.currency}
-                </OldPrice>
-                <Price isOldPrice={true}>
-                  {course.price}{course.currency}
-                </Price>
-              </> ||
-              <Price isOldPrice={false}>
-                {course.price}{course.currency}
-              </Price>
-            }
+            <Price price={course.price} oldPrice={course.oldPrice} currency={course.currency} />
           </Grid>
         </Grid>
         <ImageContainer>
           <Image src={course.imgUrl} />
         </ImageContainer>
-        <Description> {(!showDesc && trim(course.description, { size: 160 })) || course.description} </Description >
+        <Description> {showDesc ? course.description : trim(course.description, { size: 160 })}</Description >
         <CardFoobar>
           <Grid container>
             <Grid item xs={2}>

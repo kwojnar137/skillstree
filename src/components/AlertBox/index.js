@@ -1,3 +1,3 @@
-import AlertBox from "./AlertBox";
+import AlertMessage from "./AlertMessage";
 
-export default AlertBox 
+export default AlertMessage 

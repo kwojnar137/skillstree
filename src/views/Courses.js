@@ -4,7 +4,7 @@ import axios from 'axios';
 import Layout from '../layout'
 import '../sass/explore.scss'
 
-import Content from './CoursesContent';
+import CoursesContent from './CoursesContent';
 import DropdownMenu from '../components/DropdownMenu'
 
 import { makeFamilly } from '../utils';
@@ -49,7 +49,7 @@ export default function Achievments() {
       <div className="container">
         <ChoiceProvider>
           {familly && <div className='menuContainer'> <DropdownMenu famillyArray={familly} /> </div>}
-          {familly && <Content familly={familly} />}
+          {familly && <CoursesContent familly={familly} />}
         </ChoiceProvider>
       </div>
 

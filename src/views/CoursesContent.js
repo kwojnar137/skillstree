@@ -6,7 +6,7 @@ import { CoursesBlockElement } from '../components/CoursesBlockElement';
 import { CoursesListElement } from '../components/CoursesListElement';
 import ViewType from '../components/ViewType'
 import ViewIcon from '../components/ViewIcon'
-import AlertBox from '../components/AlertBox'
+import AlertMessage from '../components/AlertBox'
 import { findChildrensId } from '../utils'
 
 // import { ReactComponent as ViewListIcon } from '@material-ui/icons/ViewList';
@@ -14,7 +14,7 @@ import { findChildrensId } from '../utils'
 
 import ViewListIcon from '@material-ui/icons/ViewList';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
-import LoadingSpinner from '../components/LoadingSpinner';
+import { LoadingSpinner } from '../components/LoadingSpinner';
 
 
 export default function Content({ familly }) {
@@ -38,7 +38,7 @@ export default function Content({ familly }) {
     }
     setTimeout(() => {
       fetchData();
-    }, 2000)
+    }, 1)
 
 
   }, [])
@@ -95,7 +95,7 @@ export default function Content({ familly }) {
         </Grid>
       }
       {loading && <LoadingSpinner />}
-      {showAlert && <AlertBox alertMessage={"There is no courses"} />}
+      {showAlert && <AlertMessage alertMessage={"There is no courses"} />}
     </div>
   )
 }

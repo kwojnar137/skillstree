@@ -4,7 +4,7 @@ import { AlertBoxContainer } from './AlertBoxContainer'
 import { AlertBoxCloseIcon } from './AlertBoxCloseIcon'
 
 
-function AlertBox({ alertMessage }) {
+function AlertMessage({ alertMessage }) {
   const [show, setShow] = useState(true)
 
   function handleClose() {
@@ -21,9 +21,4 @@ function AlertBox({ alertMessage }) {
   )
 }
 
-
-
-
-
-
-export default AlertBox
+export default AlertMessage

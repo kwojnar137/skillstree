@@ -1,4 +1,1 @@
-import CoursesBlockElement from './CoursesBlockElement';
-
-
-export { CoursesBlockElement };
+export { default as CoursesBlockElement } from './CoursesBlockElement';
