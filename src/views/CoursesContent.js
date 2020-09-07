@@ -8,10 +8,6 @@ import ViewType from '../components/ViewType'
 import ViewIcon from '../components/ViewIcon'
 import AlertMessage from '../components/AlertBox'
 import { findChildrensId } from '../utils'
-
-// import { ReactComponent as ViewListIcon } from '@material-ui/icons/ViewList';
-// import { ReactComponent as ViewModuleIcon } from '@material-ui/icons/ViewModule';
-
 import ViewListIcon from '@material-ui/icons/ViewList';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
 import { LoadingSpinner } from '../components/LoadingSpinner';
@@ -19,11 +15,8 @@ import { LoadingSpinner } from '../components/LoadingSpinner';
 
 export default function Content({ familly }) {
   const { choice } = useChoiceState()
-  const [courses, setCourses] = useState({
-    collection: null,
-    loading: true,
-    showAlert: false,
-  })
+  const [courses, setCourses] = useState(null)
+  const [status, setStatus] = useState(null)
   const [filtered, setFiltered] = useState(null)
   const [viewTypeBlock, setViewTypeBlock] = useState("list")
 
@@ -31,24 +24,21 @@ export default function Content({ familly }) {
     async function fetchData() {
       try {
         const res = await axios.get('/courses')
-        setCourses({ collection: res.data, loading: false, showAlert: false })
-      } catch (err) {
-        setCourses({ collection: null, loading: false, showAlert: true })
+        setCourses(res.data)
+        setStatus(res.status)
+      } catch (error) {
+        setStatus(error.response.status)
       }
     }
     setTimeout(() => {
       fetchData();
-    }, 1)
-
-
+    }, 2000)
   }, [])
 
-  const { collection, loading, showAlert } = courses
-
   useEffect(() => {
-    if (collection) {
+    if (courses) {
       let requestedCategoriesIDs = findChildrensId(familly, choice)
-      const coursesFiltered = collection.map((course) => {
+      const coursesFiltered = courses.map((course) => {
         const categoryIds = course.category.map((item) => {
           return item.id
         })
@@ -69,9 +59,11 @@ export default function Content({ familly }) {
     setViewTypeBlock(viewType)
   }
 
+
+
   return (
     <div className="categoriesContent">
-
+      {console.log(status)}
       <ViewType >
 
         <ViewIcon activeId={viewTypeBlock === "list"} >
@@ -94,8 +86,8 @@ export default function Content({ familly }) {
           }
         </Grid>
       }
-      {loading && <LoadingSpinner />}
-      {showAlert && <AlertMessage alertMessage={"There is no courses"} />}
+      {!status && <LoadingSpinner />}
+      {status && < AlertMessage status={status} />}
     </div>
   )
 }

@@ -517,6 +517,8 @@ app.get('/api/courses', (req, res) => res.json([
 
 ));
 
+app.get('/api/courses2', (req, res) => res.json())
+
 app.get('/api/authors', (req, res) => res.json([
   {
     "name": "Stefan Banach",
@@ -556,7 +558,6 @@ app.get('/api/authors', (req, res) => res.json([
   },
 
 ]));
-
 
 
 app.get('/api/categoriesdata', (req, res) => res.json([
