@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 
 import Layout from '../layout'
@@ -10,15 +10,9 @@ import DropdownMenu from '../components/DropdownMenu'
 import { makeFamilly } from '../utils';
 import { ChoiceProvider } from '../context/choiceContext'
 
-
-
-
 export default function Achievments() {
   const [categories, setCategories] = useState(null)
   const [familly, setFamilly] = useState(null)
-
-
-
 
   useEffect(() => {
     async function fetchData() {

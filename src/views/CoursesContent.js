@@ -23,7 +23,7 @@ export default function Content({ familly }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await axios.get('/courses')
+        const res = await axios.get('/courses ')
         setCourses(res.data)
         setStatus(res.status)
       } catch (error) {
@@ -55,23 +55,17 @@ export default function Content({ familly }) {
     }
   }, [choice])
 
-  function handleViewType(viewType) {
-    setViewTypeBlock(viewType)
-  }
-
 
 
   return (
     <div className="categoriesContent">
-      {console.log(status)}
       <ViewType >
-
         <ViewIcon activeId={viewTypeBlock === "list"} >
-          <ViewListIcon style={{ fontSize: 60 }} id="list" onClick={() => handleViewType("list")} />
+          <ViewListIcon style={{ fontSize: 60 }} id="list" onClick={() => setViewTypeBlock("list")} />
         </ViewIcon>
 
         <ViewIcon activeId={viewTypeBlock === "block"} >
-          <ViewModuleIcon style={{ fontSize: 60 }} id="block" onClick={() => handleViewType("block")} />
+          <ViewModuleIcon style={{ fontSize: 60 }} id="block" onClick={() => setViewTypeBlock("block")} />
         </ViewIcon>
 
       </ViewType>

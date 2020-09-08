@@ -7,7 +7,6 @@ import { messegeFromStatus } from '../../utils'
 
 function AlertMessage({ status }) {
   const [show, setShow] = useState(true)
-  console.log(status)
 
   function handleClose() {
     setShow(false)
@@ -15,12 +14,12 @@ function AlertMessage({ status }) {
 
   const alertMessage = messegeFromStatus(status)
 
-  if (alertMessage != 'OK') {
+  if (alertMessage !== 'OK') {
     return (
       <AlertBoxContainer show={show}>
         {alertMessage}
-        <AlertBoxCloseIcon>
-          <CloseIcon onClick={handleClose} />
+        <AlertBoxCloseIcon >
+          <CloseIcon id='closeIcon' onClick={handleClose} />
         </AlertBoxCloseIcon>
       </AlertBoxContainer>
     )

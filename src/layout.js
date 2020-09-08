@@ -1,5 +1,4 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
 import MenuIcon from './static/media/svg/MenuIcon.svg'
 import CancelIcon from './static/media/svg/cancelMenu.svg'
 import Link from './components/Link'
