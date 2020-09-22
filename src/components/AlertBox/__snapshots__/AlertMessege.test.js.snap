@@ -2,12 +2,12 @@
 
 exports[`snaphot MessegeBox snapshot 1`] = `
 <styled.div
-  show={true}
+  variant="#FFCF37"
 >
   Client error: Server couldn't find what you want
   <styled.div>
     <CloseIcon
-      id="closeIcon"
+      className="closeIcon"
       onClick={[Function]}
     />
   </styled.div>

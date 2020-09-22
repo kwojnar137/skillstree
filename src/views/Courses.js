@@ -1,52 +1,76 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-import Layout from '../layout'
-import '../sass/explore.scss'
+import Layout from "../layout";
+import "../sass/courses.scss";
 
-import CoursesContent from './CoursesContent';
-import DropdownMenu from '../components/DropdownMenu'
+import Content from "./CoursesContent";
+import DropdownMenu from "../components/DropdownMenu";
 
-import { makeFamilly } from '../utils';
-import { ChoiceProvider } from '../context/choiceContext'
+import { makeFamilly, messageFromStatus } from "../utils";
+import { ChoiceProvider } from "../context/choiceContext";
 
-export default function Achievments() {
-  const [categories, setCategories] = useState(null)
-  const [familly, setFamilly] = useState(null)
+import { LoadingSpinner } from "../components/LoadingSpinner";
+import AlertMessage from "../components/AlertBox";
+
+export default function Courses() {
+  const [categories, setCategories] = useState(null);
+  const [familly, setFamilly] = useState(null);
+  const [variant, setVariant] = useState(null);
+
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await axios.get('/categories')
-        setCategories(res.data)
-      } catch (err) {
-        setCategories(null)
+        const res = await axios.get("/categories");
+        setCategories(res.data);
+      } catch (error) {
+        setCategories(null);
+        const { message, variant } = messageFromStatus(error.response.status);
+        setVariant(variant);
+        setError(message);
+      } finally {
+        setLoading(false);
       }
     }
     fetchData();
-  }, [])
-
+  }, []);
 
   useEffect(() => {
     if (categories) {
-      const famillyFromCategories = makeFamilly(categories)
-      setFamilly(famillyFromCategories)
+      const famillyFromCategories = makeFamilly(categories);
+      setFamilly(famillyFromCategories);
     }
-  }, [categories])
+  }, [categories]);
 
-
-
-
+  function clearError() {
+    setError(null);
+    setVariant(null);
+  }
 
   return (
     <Layout>
       <div className="container">
+        {loading && <LoadingSpinner />}
+        {error && (
+          <AlertMessage
+            variant={variant}
+            message={error}
+            onClose={clearError}
+          />
+        )}
         <ChoiceProvider>
-          {familly && <div className='menuContainer'> <DropdownMenu famillyArray={familly} /> </div>}
-          {familly && <CoursesContent familly={familly} />}
+          {familly && (
+            <div className="menuContainer">
+              {" "}
+              <DropdownMenu famillyArray={familly} />{" "}
+            </div>
+          )}
+          {familly && <Content familly={familly} />}
         </ChoiceProvider>
       </div>
-
     </Layout>
-  )
+  );
 }

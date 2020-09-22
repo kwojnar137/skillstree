@@ -1,30 +1,40 @@
-import React, { useState } from 'react'
-import CloseIcon from '@material-ui/icons/Close';
-import { AlertBoxContainer } from './AlertBoxContainer'
-import { AlertBoxCloseIcon } from './AlertBoxCloseIcon'
-import { messegeFromStatus } from '../../utils'
+import React from "react";
+import PropTypes from "prop-types";
+import CloseIcon from "@material-ui/icons/Close";
+import { AlertBoxContainer } from "./AlertBoxContainer";
+import { AlertBoxCloseIcon } from "./AlertBoxCloseIcon";
 
+function AlertMessage({ variant, message, onClose }) {
+  const variants = [
+    { name: "danger", color: "#f44336" },
+    { name: "warning", color: "#FFCF37" },
+    { name: "info", color: "#3780FF" },
+  ];
 
-function AlertMessage({ status }) {
-  const [show, setShow] = useState(true)
-
-  function handleClose() {
-    setShow(false)
+  if (variant) {
+    var chosenVariant = variants.filter((item) => {
+      return item.name === variant;
+    });
+  } else {
+    var chosenVariant = new Array({ color: "info" });
   }
 
-  const alertMessage = messegeFromStatus(status)
+  // console.log(chosenVariant);
 
-  if (alertMessage !== 'OK') {
-    return (
-      <AlertBoxContainer show={show}>
-        {alertMessage}
-        <AlertBoxCloseIcon >
-          <CloseIcon id='closeIcon' onClick={handleClose} />
-        </AlertBoxCloseIcon>
-      </AlertBoxContainer>
-    )
-  }
-  return <></>
+  return (
+    <AlertBoxContainer variant={chosenVariant[0].color}>
+      {message}
+      <AlertBoxCloseIcon>
+        <CloseIcon className="closeIcon" onClick={onClose} />
+      </AlertBoxCloseIcon>
+    </AlertBoxContainer>
+  );
 }
 
-export default AlertMessage
+export default AlertMessage;
+
+AlertMessage.propTypes = {
+  variant: PropTypes.string,
+  message: PropTypes.string,
+  onClose: PropTypes.func,
+};

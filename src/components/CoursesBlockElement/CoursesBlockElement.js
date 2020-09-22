@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 
-import AddIcon from '@material-ui/icons/Add';
-import ShareIcon from '@material-ui/icons/Share';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import StarOutlined from '@material-ui/icons/StarOutlined';
-import Grid from '@material-ui/core/Grid';
+import AddIcon from "@material-ui/icons/Add";
+import ShareIcon from "@material-ui/icons/Share";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
+import StarOutlined from "@material-ui/icons/StarOutlined";
+import Grid from "@material-ui/core/Grid";
 
-import { trim } from '../../utils';
+import { trim } from "../../utils";
 
 import ContentCard from "../ContentCard";
 import Title from "../Title";
@@ -23,15 +24,13 @@ import CardFoobar from "../CardFoobar";
 import Rating from "../Rating";
 import RatingContainer from "../RatingContainer";
 import MainInfo from "../MainInfo";
-import Price from '../Price'
-
-
+import Price from "../Price";
 
 export default function CourseBlockElement({ course }) {
   const [showDesc, setShowDesc] = useState(false);
 
   function handleDesc() {
-    setShowDesc(!showDesc)
+    setShowDesc(!showDesc);
   }
 
   return (
@@ -56,13 +55,22 @@ export default function CourseBlockElement({ course }) {
                 {course.rating}
               </Rating>
             </RatingContainer>
-            <Price price={course.price} oldPrice={course.oldPrice} currency={course.currency} />
+            <Price
+              price={course.price}
+              oldPrice={course.oldPrice}
+              currency={course.currency}
+            />
           </Grid>
         </Grid>
         <ImageContainer>
           <Image src={course.imgUrl} />
         </ImageContainer>
-        <Description> {showDesc ? course.description : trim(course.description, { size: 160 })}</Description >
+        <Description>
+          {" "}
+          {showDesc
+            ? course.description
+            : trim(course.description, { size: 160 })}
+        </Description>
         <CardFoobar>
           <Grid container>
             <Grid item xs={2}>
@@ -75,8 +83,10 @@ export default function CourseBlockElement({ course }) {
                 <ShareIcon />
               </Share>
             </Grid>
-            <Grid item xs={6}> </Grid>
-            <Grid item xs={2} >
+            <Grid item xs={6}>
+              {" "}
+            </Grid>
+            <Grid item xs={2}>
               <ExpandIcon onClick={handleDesc} rotateAction={showDesc}>
                 <ExpandMoreIcon />
               </ExpandIcon>
@@ -85,5 +95,9 @@ export default function CourseBlockElement({ course }) {
         </CardFoobar>
       </ContentCard>
     </Grid>
-  )
+  );
 }
+
+CourseBlockElement.propTypes = {
+  course: PropTypes.object,
+};
