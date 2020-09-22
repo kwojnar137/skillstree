@@ -1,24 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import Routes from './Routes'
-import './sass/app.scss'
-import axios from 'axios'
+import Routes from "./Routes";
+import "./sass/app.scss";
+import axios from "axios";
 
 axios.defaults.port = 9000;
 
-
 const App = () => {
   return (
-    <Router>
+    <Router basename="/skillstree">
       <Routes />
     </Router>
-  )
-}
+  );
+};
 
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
-
+ReactDOM.render(<App />, document.getElementById("root"));
