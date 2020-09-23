@@ -9,7 +9,10 @@ describe("rendering components", () => {
   it("renders without crashing", () => {
     const status = 200;
     const { message, variant } = messageFromStatus(status);
-    shallow(<AlertMessage message={message} variant={variant} />);
+    const wrapper = shallow(
+      <AlertMessage message={message} variant={variant} />
+    );
+    expect(wrapper.contains("OK")).toEqual(true);
   });
 });
 
@@ -53,13 +56,6 @@ describe("Rendering status text", () => {
     ).toEqual(true);
   });
 });
-
-// describe("Click close logic", () => {
-//   const wrapper = shallow(<AlertMessage status={404} />);
-//   const closeIcon = wrapper.find("#closeIcon");
-//   closeIcon.simulate("click");
-//   // expect(wrapper.find('#closeIcon')).to.toEqual(true)
-// });
 
 it("simulates click events", () => {
   const spy = sinon.spy();

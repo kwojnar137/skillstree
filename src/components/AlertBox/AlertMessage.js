@@ -4,22 +4,14 @@ import CloseIcon from "@material-ui/icons/Close";
 import { AlertBoxContainer } from "./AlertBoxContainer";
 import { AlertBoxCloseIcon } from "./AlertBoxCloseIcon";
 
-function AlertMessage({ variant, message, onClose }) {
+function AlertMessage({ variant = "info", message, onClose }) {
   const variants = [
     { name: "danger", color: "#f44336" },
     { name: "warning", color: "#FFCF37" },
     { name: "info", color: "#3780FF" },
   ];
 
-  if (variant) {
-    var chosenVariant = variants.filter((item) => {
-      return item.name === variant;
-    });
-  } else {
-    var chosenVariant = new Array({ color: "info" });
-  }
-
-  // console.log(chosenVariant);
+  let chosenVariant = variants.filter(({ name }) => name === variant);
 
   return (
     <AlertBoxContainer variant={chosenVariant[0].color}>
@@ -35,6 +27,6 @@ export default AlertMessage;
 
 AlertMessage.propTypes = {
   variant: PropTypes.string,
-  message: PropTypes.string,
+  message: PropTypes.string.isRequired,
   onClose: PropTypes.func,
 };

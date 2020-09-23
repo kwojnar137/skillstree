@@ -24,10 +24,14 @@ export default function Content({ familly }) {
   const [filtered, setFiltered] = useState(null);
   const [viewTypeBlock, setViewTypeBlock] = useState("list");
 
+  const COURSES_API_URL = "/courses";
+
+  console.log(familly);
+
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await axios.get("/courses");
+        const res = await axios.get(COURSES_API_URL);
         setCourses(res.data);
       } catch (error) {
         const { message, variant } = messageFromStatus(error.response.status);
@@ -109,5 +113,12 @@ export default function Content({ familly }) {
 }
 
 Content.propTypes = {
-  familly: PropTypes.array,
+  familly: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      id: PropTypes.number,
+      parentId: PropTypes.number,
+      childrens: PropTypes.array,
+    })
+  ).isRequired,
 };

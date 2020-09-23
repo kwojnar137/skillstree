@@ -7,9 +7,7 @@ import { messageFromStatus } from "./utils";
 // 5. and Server errors (500–599). Server error
 
 test("Messege is OK for status code 0 - 399", () => {
-  for (let i = 0; i < 400; i++) {
-    expect(messageFromStatus(i)).toEqual({ message: "OK", variant: "info" });
-  }
+  expect(messageFromStatus(200)).toEqual({ message: "OK", variant: "info" });
 });
 
 test("For status code 400", () => {
@@ -47,13 +45,11 @@ test("For status code 429", () => {
   });
 });
 
-test("Status code is greater then 429 and less than 500", () => {
-  for (let i = 430; i < 499; i++) {
-    expect(messageFromStatus(i)).toEqual({
-      message: "Unidentified client error. Conntact with our support",
-      variant: "warning",
-    });
-  }
+test("Status code is greater then 429 and less than 500, case: 440", () => {
+  expect(messageFromStatus(440)).toEqual({
+    message: "Unidentified client error. Conntact with our support",
+    variant: "warning",
+  });
 });
 
 test("For status code 500", () => {
@@ -71,11 +67,9 @@ test("For status code 503", () => {
   });
 });
 
-test("Status code is greater then 504 and less than 600", () => {
-  for (let i = 504; i < 599; i++) {
-    expect(messageFromStatus(i)).toEqual({
-      message: "Unidentified server error. Conntact with our support",
-      variant: "warning",
-    });
-  }
+test("Status code is greater then 503 and less than 600, case: 510", () => {
+  expect(messageFromStatus(510)).toEqual({
+    message: "Unidentified server error. Conntact with our support",
+    variant: "warning",
+  });
 });

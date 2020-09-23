@@ -21,10 +21,12 @@ export default function Courses() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const CATEGORIES_API_URL = "/categories";
+
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await axios.get("/categories");
+        const res = await axios.get(CATEGORIES_API_URL);
         setCategories(res.data);
       } catch (error) {
         setCategories(null);
