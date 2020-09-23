@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snaphot MessegeBox snapshot 1`] = `
+<styled.div
+  variant="#FFCF37"
+>
+  Client error: Server couldn't find what you want
+  <styled.div>
+    <CloseIcon
+      className="closeIcon"
+      onClick={[Function]}
+    />
+  </styled.div>
+</styled.div>
+`;
