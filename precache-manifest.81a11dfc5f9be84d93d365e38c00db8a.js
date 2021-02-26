@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c1d387dbc0a970d1428b2cc61d9f9e5a",
+    "revision": "2aad85426e0728611803303252e36ae1",
     "url": "/skillstree/index.html"
   },
   {
-    "revision": "0f3916b389efe83f1417",
-    "url": "/skillstree/static/css/main.5cf06de6.chunk.css"
+    "revision": "6fe05f437e86b208032f",
+    "url": "/skillstree/static/css/main.21efd0a6.chunk.css"
   },
   {
     "revision": "f38118bffbd18fd6c653",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/skillstree/static/js/2.7b404cf5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0f3916b389efe83f1417",
-    "url": "/skillstree/static/js/main.f9b9ea10.chunk.js"
+    "revision": "6fe05f437e86b208032f",
+    "url": "/skillstree/static/js/main.24fee2bd.chunk.js"
   },
   {
     "revision": "962949bb9e57e98a171f",
