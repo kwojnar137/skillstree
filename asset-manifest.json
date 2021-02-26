@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/skillstree/static/css/main.5cf06de6.chunk.css",
-    "main.js": "/skillstree/static/js/main.91aa2c6a.chunk.js",
-    "main.js.map": "/skillstree/static/js/main.91aa2c6a.chunk.js.map",
+    "main.js": "/skillstree/static/js/main.d1e0604b.chunk.js",
+    "main.js.map": "/skillstree/static/js/main.d1e0604b.chunk.js.map",
     "runtime-main.js": "/skillstree/static/js/runtime-main.563dd6d6.js",
     "runtime-main.js.map": "/skillstree/static/js/runtime-main.563dd6d6.js.map",
     "static/js/2.7b404cf5.chunk.js": "/skillstree/static/js/2.7b404cf5.chunk.js",
     "static/js/2.7b404cf5.chunk.js.map": "/skillstree/static/js/2.7b404cf5.chunk.js.map",
     "index.html": "/skillstree/index.html",
-    "precache-manifest.1802d690075d5974f44993ceb26938e4.js": "/skillstree/precache-manifest.1802d690075d5974f44993ceb26938e4.js",
+    "precache-manifest.d555bfb54c5cf5287efcae853f042bae.js": "/skillstree/precache-manifest.d555bfb54c5cf5287efcae853f042bae.js",
     "service-worker.js": "/skillstree/service-worker.js",
     "static/css/main.5cf06de6.chunk.css.map": "/skillstree/static/css/main.5cf06de6.chunk.css.map",
     "static/js/2.7b404cf5.chunk.js.LICENSE.txt": "/skillstree/static/js/2.7b404cf5.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.563dd6d6.js",
     "static/js/2.7b404cf5.chunk.js",
     "static/css/main.5cf06de6.chunk.css",
-    "static/js/main.91aa2c6a.chunk.js"
+    "static/js/main.d1e0604b.chunk.js"
   ]
 }
