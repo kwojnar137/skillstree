@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e5e124c53dc54f6e1e749de88ff8c9a4",
+    "revision": "f127a851d1890320332088f38a455c28",
     "url": "/skillstree/index.html"
   },
   {
-    "revision": "bbb65739d5a28368c71c",
-    "url": "/skillstree/static/css/main.1bc0d039.chunk.css"
+    "revision": "ce399a277a9c735ba7c6",
+    "url": "/skillstree/static/css/main.5cf06de6.chunk.css"
   },
   {
-    "revision": "008a6d723facfe0dd9e3",
-    "url": "/skillstree/static/js/2.f0f73a80.chunk.js"
+    "revision": "f38118bffbd18fd6c653",
+    "url": "/skillstree/static/js/2.7b404cf5.chunk.js"
   },
   {
-    "revision": "0749163b59fbee32225059cb60c18af6",
-    "url": "/skillstree/static/js/2.f0f73a80.chunk.js.LICENSE.txt"
+    "revision": "6397acf4c5cafcd591a770ce33fc3e2f",
+    "url": "/skillstree/static/js/2.7b404cf5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "bbb65739d5a28368c71c",
-    "url": "/skillstree/static/js/main.2cbc206b.chunk.js"
+    "revision": "ce399a277a9c735ba7c6",
+    "url": "/skillstree/static/js/main.91aa2c6a.chunk.js"
   },
   {
     "revision": "962949bb9e57e98a171f",
