@@ -20,6 +20,7 @@ const Nav = () => {
             {isMenuTriggered && <div className={`sideBar${isMenuTriggered ? ' active' : ''}`}>
               <div className='sideBarList'>
                 <Link to="/courses">Kursy</Link>
+                <Link to="/shop">Sklep</Link>
               </div>
             </div>}
           </div>
@@ -30,6 +31,8 @@ const Nav = () => {
         <div className="rightSide">
           <div className="navLinks">
             <Link to="/courses">Kursy</Link>
+            <Link to="/shop">Sklep</Link>
+
           </div>
         </div>
       </div>
