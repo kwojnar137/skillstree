@@ -9,7 +9,7 @@ axios.defaults.port = 9000;
 
 const App = () => {
   return (
-    <Router basename="/">
+    <Router basename="/skillstree">
       <Routes />
     </Router>
   );
