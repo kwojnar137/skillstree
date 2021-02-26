@@ -52,10 +52,25 @@ export default function Courses() {
     setVariant(null);
   }
 
+  const mystyle = {
+    border: "0px",
+    // width: "100%!important",
+    padding: "0px",
+    margin: "0 auto",
+    minHeight: "200px",
+    maxWidth: "1000px",
+    display: "block",
+    width: "inherit",
+    height: "inherit"
+
+  };
+
   return (
     <Layout>
       <div className="container">
-        {loading && <LoadingSpinner />}
+      <iframe id="dl-widget" style={mystyle} src="https://widget-sandbox.droplabs.pl/index.html?facilityId=1&onlineGroupId=3421"></iframe>
+
+        {/* {loading && <LoadingSpinner />}
         {error && (
           <AlertMessage
             variant={variant}
@@ -71,7 +86,7 @@ export default function Courses() {
             </div>
           )}
           {familly && <Content familly={familly} />}
-        </ChoiceProvider>
+        </ChoiceProvider> */}
       </div>
     </Layout>
   );
