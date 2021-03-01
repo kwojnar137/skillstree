@@ -24,7 +24,7 @@ export default function Shop() {
       {/* {script} */}
       {/* <script type="text/javascript" src="https://widget-sandbox.droplabs.pl/bubble.js" id="dl-bubble" data-facility-id="122034" data-bottom="100px" data-right="100px" data-background-color="#b11f20" data-text-color-type="LIGHT" data-href="https://kwojnar137.github.io/" data-text-type="TICKET"  data-shape="bubble"></script> */}
       {/* <iframe id="dl-widget" src="https://widget-sandbox.droplabs.pl/index.html?facilityId=122034&onlineGroupId=315569"></iframe> */}
-      <iframe id="dl-widget" style={mystyle} src="https://widget-sandbox.droplabs.pl/index.html?facilityId=1&onlineGroupId=3421"></iframe>
+      {/* <iframe id="dl-widget" style={mystyle} src="https://widget-sandbox.droplabs.pl/index.html?facilityId=1&onlineGroupId=3421"></iframe> */}
     </Layout>
   );
 }
