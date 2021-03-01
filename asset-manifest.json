@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/skillstree/static/css/main.c34928df.chunk.css",
+    "main.css": "/skillstree/static/css/main.1c166a58.chunk.css",
     "main.js": "/skillstree/static/js/main.2c888050.chunk.js",
     "main.js.map": "/skillstree/static/js/main.2c888050.chunk.js.map",
     "runtime-main.js": "/skillstree/static/js/runtime-main.563dd6d6.js",
@@ -8,9 +8,9 @@
     "static/js/2.7b404cf5.chunk.js": "/skillstree/static/js/2.7b404cf5.chunk.js",
     "static/js/2.7b404cf5.chunk.js.map": "/skillstree/static/js/2.7b404cf5.chunk.js.map",
     "index.html": "/skillstree/index.html",
-    "precache-manifest.c295b66448c3c6b5eedd3691ff2aebfc.js": "/skillstree/precache-manifest.c295b66448c3c6b5eedd3691ff2aebfc.js",
+    "precache-manifest.64720b17c33f47f3f7984151cf1aa5f7.js": "/skillstree/precache-manifest.64720b17c33f47f3f7984151cf1aa5f7.js",
     "service-worker.js": "/skillstree/service-worker.js",
-    "static/css/main.c34928df.chunk.css.map": "/skillstree/static/css/main.c34928df.chunk.css.map",
+    "static/css/main.1c166a58.chunk.css.map": "/skillstree/static/css/main.1c166a58.chunk.css.map",
     "static/js/2.7b404cf5.chunk.js.LICENSE.txt": "/skillstree/static/js/2.7b404cf5.chunk.js.LICENSE.txt",
     "static/media/MenuIcon.svg": "/skillstree/static/media/MenuIcon.682eec38.svg",
     "static/media/cancelMenu.svg": "/skillstree/static/media/cancelMenu.ac23faf4.svg"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.563dd6d6.js",
     "static/js/2.7b404cf5.chunk.js",
-    "static/css/main.c34928df.chunk.css",
+    "static/css/main.1c166a58.chunk.css",
     "static/js/main.2c888050.chunk.js"
   ]
 }
