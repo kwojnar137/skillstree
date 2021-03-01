@@ -68,7 +68,7 @@ export default function Courses() {
   return (
     <Layout>
       <div className="container">
-      <iframe id="dl-widget" style={mystyle} src="https://widget-sandbox.droplabs.pl/index.html?facilityId=1&onlineGroupId=3421"></iframe>
+      {/* <iframe id="dl-widget" style={mystyle} src="https://widget-sandbox.droplabs.pl/index.html?facilityId=1&onlineGroupId=3421"></iframe> */}
 
         {/* {loading && <LoadingSpinner />}
         {error && (
