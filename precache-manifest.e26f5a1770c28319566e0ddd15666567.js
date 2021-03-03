@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7c76bdb1232310fdb9dcb63dd76c11b1",
+    "revision": "0d5e8b18074789fbcc0dd34c4cd63ef8",
     "url": "/skillstree/index.html"
   },
   {
